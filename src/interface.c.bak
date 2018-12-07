@@ -737,10 +737,12 @@ create_Paiment (void)
   GtkWidget *image31;
   GtkWidget *label181;
   GtkWidget *label158;
-  GtkWidget *treeview13;
+  GtkWidget *scrolledwindow9;
+  GtkWidget *treeview16;
+  GtkWidget *label219;
 
   Paiment = gtk_window_new (GTK_WINDOW_TOPLEVEL);
-  gtk_widget_set_size_request (Paiment, 640, 480);
+  gtk_widget_set_size_request (Paiment, 720, 480);
   gtk_window_set_title (GTK_WINDOW (Paiment), _("panneau de gestion  paiement"));
 
   fixed11 = gtk_fixed_new ();
@@ -749,8 +751,8 @@ create_Paiment (void)
 
   notebook9 = gtk_notebook_new ();
   gtk_widget_show (notebook9);
-  gtk_fixed_put (GTK_FIXED (fixed11), notebook9, 328, 24);
-  gtk_widget_set_size_request (notebook9, 584, 384);
+  gtk_fixed_put (GTK_FIXED (fixed11), notebook9, 16, 8);
+  gtk_widget_set_size_request (notebook9, 670, 430);
 
   fixed35 = gtk_fixed_new ();
   gtk_widget_show (fixed35);
@@ -967,10 +969,18 @@ create_Paiment (void)
   gtk_widget_show (label158);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook9), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook9), 2), label158);
 
-  treeview13 = gtk_tree_view_new ();
-  gtk_widget_show (treeview13);
-  gtk_fixed_put (GTK_FIXED (fixed11), treeview13, 16, 120);
-  gtk_widget_set_size_request (treeview13, 300, 200);
+  scrolledwindow9 = gtk_scrolled_window_new (NULL, NULL);
+  gtk_widget_show (scrolledwindow9);
+  gtk_container_add (GTK_CONTAINER (notebook9), scrolledwindow9);
+  gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (scrolledwindow9), GTK_SHADOW_IN);
+
+  treeview16 = gtk_tree_view_new ();
+  gtk_widget_show (treeview16);
+  gtk_container_add (GTK_CONTAINER (scrolledwindow9), treeview16);
+
+  label219 = gtk_label_new (_("Afficher"));
+  gtk_widget_show (label219);
+  gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook9), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook9), 3), label219);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (Paiment, Paiment, "Paiment");
@@ -1021,7 +1031,9 @@ create_Paiment (void)
   GLADE_HOOKUP_OBJECT (Paiment, image31, "image31");
   GLADE_HOOKUP_OBJECT (Paiment, label181, "label181");
   GLADE_HOOKUP_OBJECT (Paiment, label158, "label158");
-  GLADE_HOOKUP_OBJECT (Paiment, treeview13, "treeview13");
+  GLADE_HOOKUP_OBJECT (Paiment, scrolledwindow9, "scrolledwindow9");
+  GLADE_HOOKUP_OBJECT (Paiment, treeview16, "treeview16");
+  GLADE_HOOKUP_OBJECT (Paiment, label219, "label219");
 
   return Paiment;
 }

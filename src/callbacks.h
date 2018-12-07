@@ -7,3 +7,7 @@ on_button1_clicked                     (GtkWidget       *button,
 void
 on_button2_clicked                     (GtkWidget       *button,
                                         gpointer         user_data);
+
+void
+on_button3_clicked                     (GtkWidget       *button,
+                                        gpointer         user_data);

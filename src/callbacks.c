@@ -102,11 +102,47 @@ on_button2_clicked                     (GtkWidget       *button,
   test = verif_user(u.ID);
   if (test == 0 &&  u.ROLE != -1 ){
     ajouter_user(u);
-    gtk_label_set_text(GTK_LABEL(output1),"Votre Utilisatuer ajouté");
+    gtk_label_set_text(GTK_LABEL(output1)," Utilisatuer ajouté");
   }else{
     gtk_label_set_text(GTK_LABEL(output1),"Error: ID exicte !");
   }
-  //gtk_label_set_text(GTK_LABEL(output1),"");
 
+
+}
+
+void
+on_button3_clicked                     (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  usr u;
+  int test;
+  char temp[10];
+  GtkWidget *output1 = lookup_widget(button,"msgerror");
+
+  gtk_label_set_text(GTK_LABEL(output1),"Output");
+  GtkWidget *input1 = lookup_widget(button,"entry86");
+  u.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry6");
+  strcpy(u.NOM,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry87");
+  strcpy(u.PRENOM,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry7");
+  u.PASS = atoi(gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry2");
+  strcpy(temp,gtk_combo_box_get_active_text(GTK_COMBO_BOX(comboinput1)));
+  if (strcmp(temp,"Admin") == 0 ) u.ROLE = 1;
+  else if (strcmp(temp,"Docteur") == 0 )  u.ROLE = 2;
+  else if (strcmp(temp,"Coach") == 0 )    u.ROLE = 3;
+  else if (strcmp(temp,"Kine") == 0 )     u.ROLE = 4;
+  else if (strcmp(temp,"Contable") == 0 ) u.ROLE = 5;
+  else if (strcmp(temp,"Client") == 0 )   u.ROLE = 6;
+  else u.ROLE = -1; // Error
+  test = verif_user(u.ID);
+  if (test == 1 &&  u.ROLE != -1 ){
+    modifier_user(u);
+    gtk_label_set_text(GTK_LABEL(output1)," Utilisatuer modifié");
+  }else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error: ID non exicte !");
+  }
 
 }

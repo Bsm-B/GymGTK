@@ -45,13 +45,13 @@ int verif_user(int idx)
 
 
 
-void modifier_enfant(usr tempu)
+void modifier_user(usr tempu)
 {
 	FILE*f;
 	FILE*ftemp;
   usr u;
-	f=fopen("enfants.txt","r");
-	ftemp=fopen("enfants.tmp","w");
+	f=fopen("users.txt","r");
+	ftemp=fopen("users.tmp","w");
 	if(f!=NULL)
 	{
 			while(fscanf(f,"%s %s %d %d %d \n",u.NOM,u.PRENOM,&u.ID,&u.PASS,&u.ROLE)!=EOF)
@@ -59,7 +59,7 @@ void modifier_enfant(usr tempu)
     				if(u.ID != tempu.ID){
     				fprintf(ftemp,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
 				   }else{
-    				fprintf(ftemp,"%s %s %d %d %d \n",u.NOM,tempu.PRENOM,tempu.ID,tempu.PASS,tempu.ROLE);
+    				fprintf(ftemp,"%s %s %d %d %d \n",tempu.NOM,tempu.PRENOM,u.ID,tempu.PASS,tempu.ROLE);
     	}
 			}
 			fclose(f);

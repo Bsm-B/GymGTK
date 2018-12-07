@@ -14,6 +14,8 @@ struct User
 typedef struct User usr;
 
 usr verifierlogin(int log,int pass);
+void ajouter_user(usr);
+int verif_user(int);
 
 
 

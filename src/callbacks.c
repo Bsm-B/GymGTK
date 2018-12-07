@@ -31,15 +31,46 @@ on_button1_clicked                     (GtkWidget       *button,
     ///////////////////////////////////////////////////
     u = verifierlogin(atoi(user_txt),atoi(pass_txt));
     switch (u.ROLE) {
-      case 0:
-      gtk_label_set_text(GTK_LABEL(error),"id ou mot passe sont incorrect");
-      break;
-
       case 1:
       Admin = create_Admin();
       gtk_widget_destroy(Login);
       gtk_widget_show(Admin);
       break;
+
+      case 2:
+      Dector = create_Dector();
+      gtk_widget_destroy(Login);
+      gtk_widget_show(Dector);
+      break;
+
+      case 3:
+      Coach = create_Coach();
+      gtk_widget_destroy(Login);
+      gtk_widget_show(Coach);
+      break;
+
+      case 4:
+      kine = create_kine();
+      gtk_widget_destroy(Login);
+      gtk_widget_show(kine);
+      break;
+
+      case 5:
+      Paiment = create_Paiment();
+      gtk_widget_destroy(Login);
+      gtk_widget_show(Paiment);
+      break;
+
+      case 6:
+      User = create_User();
+      gtk_widget_destroy(Login);
+      gtk_widget_show(User);
+      break;
+
+      default:
+      gtk_label_set_text(GTK_LABEL(error),"id ou mot passe sont incorrect");
+      break;
+
     }
 
 }

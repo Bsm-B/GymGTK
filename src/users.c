@@ -17,10 +17,14 @@ usr verifierlogin(int log,int pass)
 
 void ajouter_user(usr u)
 {
-	FILE *f;
-	f=fopen("users.txt","a+");
-	fprintf(f,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
-	fclose(f);
+	FILE *f1;
+  FILE *f2;
+	f1=fopen("users.txt","a+");
+	fprintf(f1,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
+	fclose(f1);
+  f2=fopen("profile.txt","a+");
+  fprintf(f2,"%s %s %d \n",u.NOM,u.PRENOM,u.ID);
+	fclose(f2);
 }
 
 int verif_user(int idx)
@@ -68,4 +72,26 @@ void modifier_user(usr tempu)
 			rename("users.tmp","users.txt");
 	}
 
+}
+
+
+void supprimer_user(int id)
+{
+	usr u;
+	FILE*f;
+  FILE*ftemp;
+	f=fopen("users.txt","a+");
+	ftemp=fopen("users.tmp","w");
+
+  while(fscanf(f,"%s %s %d %d %d \n",u.NOM,u.PRENOM,&u.ID,&u.PASS,&u.ROLE)!=EOF)
+  {
+    		if(id != u.ID)
+    		{
+			fprintf(ftemp,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
+    		}
+	}
+	fclose(f);
+	fclose(ftemp);
+	remove("users.txt");
+	rename("users.tmp","users.txt");
 }

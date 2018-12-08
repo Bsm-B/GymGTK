@@ -100,7 +100,8 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project_gtk_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
-	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT)
+	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT) \
+	event.$(OBJEXT)
 project_gtk_OBJECTS = $(am_project_gtk_OBJECTS)
 am__DEPENDENCIES_1 =
 project_gtk_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -160,12 +161,12 @@ ETAGS = etags
 CTAGS = ctags
 am__DIST_COMMON = $(srcdir)/Makefile.in $(top_srcdir)/depcomp
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} "/home/bsm/Desktop/Project Gtk/missing" aclocal-1.15
+ACLOCAL = ${SHELL} "/home/bsm/Desktop/Project Gtk/GymGTK/missing" aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} "/home/bsm/Desktop/Project Gtk/missing" autoconf
-AUTOHEADER = ${SHELL} "/home/bsm/Desktop/Project Gtk/missing" autoheader
-AUTOMAKE = ${SHELL} "/home/bsm/Desktop/Project Gtk/missing" automake-1.15
+AUTOCONF = ${SHELL} "/home/bsm/Desktop/Project Gtk/GymGTK/missing" autoconf
+AUTOHEADER = ${SHELL} "/home/bsm/Desktop/Project Gtk/GymGTK/missing" autoheader
+AUTOMAKE = ${SHELL} "/home/bsm/Desktop/Project Gtk/GymGTK/missing" automake-1.15
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -199,7 +200,7 @@ LIBOBJS =
 LIBS = 
 LTLIBOBJS = 
 MAINT = 
-MAKEINFO = ${SHELL} "/home/bsm/Desktop/Project Gtk/missing" makeinfo
+MAKEINFO = ${SHELL} "/home/bsm/Desktop/Project Gtk/GymGTK/missing" makeinfo
 MKDIR_P = /bin/mkdir -p
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
@@ -228,10 +229,10 @@ STRIP =
 USE_NLS = yes
 VERSION = 0.1
 XGETTEXT = /usr/bin/xgettext
-abs_builddir = /home/bsm/Desktop/Project Gtk/src
-abs_srcdir = /home/bsm/Desktop/Project Gtk/src
-abs_top_builddir = /home/bsm/Desktop/Project Gtk
-abs_top_srcdir = /home/bsm/Desktop/Project Gtk
+abs_builddir = /home/bsm/Desktop/Project Gtk/GymGTK/src
+abs_srcdir = /home/bsm/Desktop/Project Gtk/GymGTK/src
+abs_top_builddir = /home/bsm/Desktop/Project Gtk/GymGTK
+abs_top_srcdir = /home/bsm/Desktop/Project Gtk/GymGTK
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -250,7 +251,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} '/home/bsm/Desktop/Project Gtk/install-sh'
+install_sh = ${SHELL} '/home/bsm/Desktop/Project Gtk/GymGTK/install-sh'
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -281,7 +282,8 @@ project_gtk_SOURCES = \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
-	users.c	users.h
+	users.c	users.h	\
+	event.c	event.h 
 
 project_gtk_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS)
 all: all-am
@@ -371,6 +373,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/callbacks.Po
+include ./$(DEPDIR)/event.Po
 include ./$(DEPDIR)/interface.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/support.Po

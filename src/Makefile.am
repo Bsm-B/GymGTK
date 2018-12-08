@@ -12,6 +12,7 @@ project_gtk_SOURCES = \
 	support.c support.h \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
-	users.c	users.h
+	users.c	users.h	\
+	event.c	event.h 
 
 project_gtk_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)

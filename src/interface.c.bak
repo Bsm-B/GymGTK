@@ -202,21 +202,21 @@ create_Admin (void)
   GtkWidget *label33;
   GtkWidget *comboboxentry2;
   GtkWidget *label31;
-  GtkWidget *label224;
   GtkWidget *button3;
   GtkWidget *alignment3;
   GtkWidget *hbox3;
   GtkWidget *image4;
   GtkWidget *label32;
+  GtkWidget *label224;
   GtkWidget *label23;
   GtkWidget *fixed5;
   GtkWidget *entry8;
+  GtkWidget *label34;
   GtkWidget *button4;
   GtkWidget *alignment4;
   GtkWidget *hbox4;
   GtkWidget *image5;
   GtkWidget *label35;
-  GtkWidget *label34;
   GtkWidget *label24;
   GtkWidget *scrolledwindow2;
   GtkWidget *treeview5;
@@ -568,11 +568,6 @@ create_Admin (void)
   gtk_fixed_put (GTK_FIXED (fixed4), label31, 16, 144);
   gtk_widget_set_size_request (label31, 104, 16);
 
-  label224 = gtk_label_new (_("Prenom :"));
-  gtk_widget_show (label224);
-  gtk_fixed_put (GTK_FIXED (fixed4), label224, 264, 80);
-  gtk_widget_set_size_request (label224, 80, 17);
-
   button3 = gtk_button_new ();
   gtk_widget_show (button3);
   gtk_fixed_put (GTK_FIXED (fixed4), button3, 256, 168);
@@ -594,6 +589,11 @@ create_Admin (void)
   gtk_widget_show (label32);
   gtk_box_pack_start (GTK_BOX (hbox3), label32, FALSE, FALSE, 0);
 
+  label224 = gtk_label_new (_("Prenom :"));
+  gtk_widget_show (label224);
+  gtk_fixed_put (GTK_FIXED (fixed4), label224, 264, 80);
+  gtk_widget_set_size_request (label224, 80, 17);
+
   label23 = gtk_label_new (_("Modifier"));
   gtk_widget_show (label23);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook3), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook3), 1), label23);
@@ -607,6 +607,11 @@ create_Admin (void)
   gtk_fixed_put (GTK_FIXED (fixed5), entry8, 152, 80);
   gtk_widget_set_size_request (entry8, 168, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry8), 8226);
+
+  label34 = gtk_label_new (_("Nom"));
+  gtk_widget_show (label34);
+  gtk_fixed_put (GTK_FIXED (fixed5), label34, 208, 48);
+  gtk_widget_set_size_request (label34, 49, 17);
 
   button4 = gtk_button_new ();
   gtk_widget_show (button4);
@@ -628,11 +633,6 @@ create_Admin (void)
   label35 = gtk_label_new_with_mnemonic (_("Supprimer"));
   gtk_widget_show (label35);
   gtk_box_pack_start (GTK_BOX (hbox4), label35, FALSE, FALSE, 0);
-
-  label34 = gtk_label_new (_("Nom"));
-  gtk_widget_show (label34);
-  gtk_fixed_put (GTK_FIXED (fixed5), label34, 208, 48);
-  gtk_widget_set_size_request (label34, 49, 17);
 
   label24 = gtk_label_new (_("Supprimer"));
   gtk_widget_show (label24);
@@ -661,6 +661,9 @@ create_Admin (void)
                     NULL);
   g_signal_connect ((gpointer) button3, "clicked",
                     G_CALLBACK (on_button3_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button4, "clicked",
+                    G_CALLBACK (on_button4_clicked),
                     NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
@@ -735,21 +738,21 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, label33, "label33");
   GLADE_HOOKUP_OBJECT (Admin, comboboxentry2, "comboboxentry2");
   GLADE_HOOKUP_OBJECT (Admin, label31, "label31");
-  GLADE_HOOKUP_OBJECT (Admin, label224, "label224");
   GLADE_HOOKUP_OBJECT (Admin, button3, "button3");
   GLADE_HOOKUP_OBJECT (Admin, alignment3, "alignment3");
   GLADE_HOOKUP_OBJECT (Admin, hbox3, "hbox3");
   GLADE_HOOKUP_OBJECT (Admin, image4, "image4");
   GLADE_HOOKUP_OBJECT (Admin, label32, "label32");
+  GLADE_HOOKUP_OBJECT (Admin, label224, "label224");
   GLADE_HOOKUP_OBJECT (Admin, label23, "label23");
   GLADE_HOOKUP_OBJECT (Admin, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (Admin, entry8, "entry8");
+  GLADE_HOOKUP_OBJECT (Admin, label34, "label34");
   GLADE_HOOKUP_OBJECT (Admin, button4, "button4");
   GLADE_HOOKUP_OBJECT (Admin, alignment4, "alignment4");
   GLADE_HOOKUP_OBJECT (Admin, hbox4, "hbox4");
   GLADE_HOOKUP_OBJECT (Admin, image5, "image5");
   GLADE_HOOKUP_OBJECT (Admin, label35, "label35");
-  GLADE_HOOKUP_OBJECT (Admin, label34, "label34");
   GLADE_HOOKUP_OBJECT (Admin, label24, "label24");
   GLADE_HOOKUP_OBJECT (Admin, scrolledwindow2, "scrolledwindow2");
   GLADE_HOOKUP_OBJECT (Admin, treeview5, "treeview5");

@@ -17,6 +17,7 @@ usr verifierlogin(int log,int pass);
 void ajouter_user(usr);
 int verif_user(int);
 void modifier_user(usr tempu);
+void supprimer_user(int id);
 
 
 

@@ -81,13 +81,12 @@ on_button2_clicked                     (GtkWidget       *button,
   int test;
   char temp[10];
   GtkWidget *output1 = lookup_widget(button,"msgerror");
-  gtk_label_set_text(GTK_LABEL(output1),"Output");
   GtkWidget *input1 = lookup_widget(button,"entry84");
   u.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
   GtkWidget *input2 = lookup_widget(button,"entry4");
   strcpy(u.NOM,gtk_entry_get_text(GTK_ENTRY(input2)));
   GtkWidget *input3 = lookup_widget(button,"entry85");
-  strcpy(u.PRENOM,gtk_entry_get_text(GTK_ENTRY(input2)));
+  strcpy(u.PRENOM,gtk_entry_get_text(GTK_ENTRY(input3)));
   GtkWidget *input4 = lookup_widget(button,"entry5");
   u.PASS = atoi(gtk_entry_get_text(GTK_ENTRY(input4)));
   GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry1");
@@ -118,8 +117,6 @@ on_button3_clicked                     (GtkWidget       *button,
   int test;
   char temp[10];
   GtkWidget *output1 = lookup_widget(button,"msgerror");
-
-  gtk_label_set_text(GTK_LABEL(output1),"Output");
   GtkWidget *input1 = lookup_widget(button,"entry86");
   u.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
   GtkWidget *input2 = lookup_widget(button,"entry6");
@@ -144,5 +141,25 @@ on_button3_clicked                     (GtkWidget       *button,
   }else{
     gtk_label_set_text(GTK_LABEL(output1),"Error: ID non exicte !");
   }
+
+}
+
+void
+on_button4_clicked                     (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+    int ID;
+    int test;
+    GtkWidget *input1 = lookup_widget(button,"entry8");
+    ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+    GtkWidget *output1 = lookup_widget(button,"msgerror");
+    test = verif_user(ID);
+    if (test == 1 )
+    {
+      supprimer_user(ID);
+      gtk_label_set_text(GTK_LABEL(output1)," Utilisatuer Supprimé");
+    }else {
+      gtk_label_set_text(GTK_LABEL(output1),"Error: ID non exicte !");
+    }
 
 }

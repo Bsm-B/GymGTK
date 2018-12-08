@@ -13,11 +13,11 @@ struct User
 };
 typedef struct User usr;
 
-usr verifierlogin(int log,int pass);
+usr verifierlogin(int,int);
 void ajouter_user(usr);
 int verif_user(int);
-void modifier_user(usr tempu);
-void supprimer_user(int id);
+void modifier_user(usr);
+void supprimer_user(int);
 
 
 

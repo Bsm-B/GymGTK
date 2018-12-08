@@ -9,6 +9,7 @@
 #include "support.h"
 #include "users.h"
 #include "event.h"
+#include "profile.h"
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -105,8 +106,8 @@ on_button2_clicked                     (GtkWidget       *button,
   else u.ROLE = -1; // Error
   test = verif_user(u.ID);
   if (test == 0 &&  u.ROLE != -1 ){
-    ajouter_user(u);
-    gtk_label_set_text(GTK_LABEL(output1)," Utilisatuer ajouté");
+  ajouter_user(u);
+  gtk_label_set_text(GTK_LABEL(output1)," Utilisatuer ajouté");
   }else{
     gtk_label_set_text(GTK_LABEL(output1),"Error: ID exist !");
   }

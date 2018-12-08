@@ -101,7 +101,7 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_project_gtk_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT) \
-	event.$(OBJEXT)
+	event.$(OBJEXT) profile.$(OBJEXT)
 project_gtk_OBJECTS = $(am_project_gtk_OBJECTS)
 am__DEPENDENCIES_1 =
 project_gtk_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -283,7 +283,8 @@ project_gtk_SOURCES = \
 	interface.c interface.h \
 	callbacks.c callbacks.h \
 	users.c	users.h	\
-	event.c	event.h 
+	event.c	event.h \
+	profile.c	profile.h
 
 project_gtk_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS)
 all: all-am
@@ -376,6 +377,7 @@ include ./$(DEPDIR)/callbacks.Po
 include ./$(DEPDIR)/event.Po
 include ./$(DEPDIR)/interface.Po
 include ./$(DEPDIR)/main.Po
+include ./$(DEPDIR)/profile.Po
 include ./$(DEPDIR)/support.Po
 include ./$(DEPDIR)/users.Po
 

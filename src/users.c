@@ -1,5 +1,6 @@
 #include "users.h"
-
+#include "profile.h"
+#include <string.h>
 
 usr verifierlogin(int log,int pass)
 {
@@ -17,14 +18,19 @@ usr verifierlogin(int log,int pass)
 
 void ajouter_user(usr u)
 {
-	FILE *f1;
-  FILE *f2;
-	f1=fopen("users.txt","a+");
-	fprintf(f1,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
-	fclose(f1);
-  f2=fopen("profile.txt","a+");
-  fprintf(f2,"%s %s %d \n",u.NOM,u.PRENOM,u.ID);
-	fclose(f2);
+	FILE *f;
+  prfl p;
+  p.ID = u.ID;
+  strcpy(p.NOM,u.NOM);
+  strcpy(p.PRENOM,u.PRENOM);
+  strcpy(p.EMAIL,"empty");
+  strcpy(p.TEL,"empty");
+  p.POIDS = 0;
+  p.LONG = 0;
+	f=fopen("users.txt","a+");
+	fprintf(f,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
+	fclose(f);
+  ajouter_profile(p);
 }
 
 int verif_user(int idx)
@@ -94,4 +100,5 @@ void supprimer_user(int id)
 	fclose(ftemp);
 	remove("users.txt");
 	rename("users.tmp","users.txt");
+  supprimer_profile(u.ID);
 }

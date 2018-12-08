@@ -559,7 +559,8 @@ callbacks.o: callbacks.c /usr/include/stdc-predef.h ../config.h \
  /usr/include/x86_64-linux-gnu/bits/string2.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/string3.h interface.h support.h \
  /usr/include/libintl.h /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h users.h event.h profile.h
+ /usr/include/x86_64-linux-gnu/bits/locale.h users.h event.h profile.h \
+ pay.h
 
 /usr/include/stdc-predef.h:
 
@@ -1832,3 +1833,5 @@ users.h:
 event.h:
 
 profile.h:
+
+pay.h:

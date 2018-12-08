@@ -10,6 +10,7 @@
 #include "users.h"
 #include "event.h"
 #include "profile.h"
+#include "pay.h"
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -74,7 +75,7 @@ on_button1_clicked                     (GtkWidget       *button,
       break;
     }
 }
-/////////////////////////////////ADMIN CONTROL PANEL///////////////////////
+/*************************ADMIN CONTROL PANEL************************/
 
 
 //////////////////////////////////// CRUD USER /////////////////////////////
@@ -240,4 +241,43 @@ on_button7_clicked                     (GtkWidget       *button,
       }else {
         gtk_label_set_text(GTK_LABEL(output1),"Error: ID Evenement non exist !");
       }
+}
+/*************************PAYMENT CONTROL PANEL************************/
+
+void
+on_entry90_changed                     (GtkWidget     *editable,
+                                      gpointer         user_data)
+{
+  char nom[40];
+  int ID;
+  GtkWidget *input1 = lookup_widget(editable,"entry90");
+  GtkWidget *output1 = lookup_widget(editable,"entry92");
+  ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  accedernom(ID,nom);
+  gtk_entry_set_text(GTK_ENTRY(output1),nom);
+}
+
+
+void
+on_button29_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  pmt pt;
+  int j,m,a;
+  char nom[40];
+  GtkWidget *input1 = lookup_widget(button,"entry90");
+  pt.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  GtkWidget * nbrmois = lookup_widget(button,"spinbutton8");
+  pt.NBMOIS = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (nbrmois));
+  GtkWidget * jour = lookup_widget(button, "spinbutton9");
+  j = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (jour));
+  GtkWidget * mois = lookup_widget(button, "spinbutton10");
+  m = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (mois));
+  GtkWidget * annee = lookup_widget(button, "spinbutton11");
+  a = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (annee));
+  sprintf(pt.DATE,"%d/%d/%d",j,m,a);
+  GtkWidget *inputnom = lookup_widget(button,"entry92");
+  strcpy(pt.NOM,gtk_entry_get_text(GTK_ENTRY(inputnom)));
+  ajouter_paiment(pt);
+
 }

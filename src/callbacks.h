@@ -27,3 +27,11 @@ on_button6_clicked                     (GtkWidget       *button,
 void
 on_button7_clicked                     (GtkWidget       *button,
                                         gpointer         user_data);
+
+void
+on_entry90_changed                     (GtkWidget     *editable,
+                                        gpointer         user_data);
+
+void
+on_button29_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);

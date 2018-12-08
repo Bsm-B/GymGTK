@@ -137,8 +137,6 @@ create_Admin (void)
   GtkWidget *label18;
   GtkWidget *hseparator1;
   GtkWidget *vseparator1;
-  GtkWidget *label17;
-  GtkWidget *msgerror;
   GtkWidget *notebook3;
   GtkWidget *fixed3;
   GtkWidget *entry4;
@@ -150,12 +148,12 @@ create_Admin (void)
   GtkWidget *entry85;
   GtkWidget *label26;
   GtkWidget *label222;
-  GtkWidget *comboboxentry1;
   GtkWidget *button2;
   GtkWidget *alignment2;
   GtkWidget *hbox2;
   GtkWidget *image3;
   GtkWidget *label29;
+  GtkWidget *comboboxentry1;
   GtkWidget *label22;
   GtkWidget *fixed4;
   GtkWidget *entry6;
@@ -165,7 +163,6 @@ create_Admin (void)
   GtkWidget *label223;
   GtkWidget *label30;
   GtkWidget *label33;
-  GtkWidget *comboboxentry2;
   GtkWidget *label31;
   GtkWidget *button3;
   GtkWidget *alignment3;
@@ -173,6 +170,7 @@ create_Admin (void)
   GtkWidget *image4;
   GtkWidget *label32;
   GtkWidget *label224;
+  GtkWidget *comboboxentry2;
   GtkWidget *label23;
   GtkWidget *fixed5;
   GtkWidget *entry8;
@@ -186,13 +184,17 @@ create_Admin (void)
   GtkWidget *scrolledwindow2;
   GtkWidget *treeview5;
   GtkWidget *label25;
+  GtkWidget *msgerror;
   GtkWidget *label4;
+  GtkWidget *label17;
   GtkWidget *notebook2;
   GtkWidget *fixed8;
-  GtkWidget *label37;
   GtkWidget *entry9;
-  GtkWidget *label36;
   GtkWidget *entry10;
+  GtkWidget *label36;
+  GtkWidget *label37;
+  GtkWidget *entry88;
+  GtkWidget *label225;
   GtkWidget *button5;
   GtkWidget *alignment5;
   GtkWidget *hbox5;
@@ -200,10 +202,12 @@ create_Admin (void)
   GtkWidget *label38;
   GtkWidget *label13;
   GtkWidget *fixed9;
-  GtkWidget *label39;
   GtkWidget *entry11;
-  GtkWidget *label40;
   GtkWidget *entry12;
+  GtkWidget *label39;
+  GtkWidget *label40;
+  GtkWidget *label226;
+  GtkWidget *entry89;
   GtkWidget *button6;
   GtkWidget *alignment6;
   GtkWidget *hbox6;
@@ -250,16 +254,6 @@ create_Admin (void)
   gtk_widget_show (vseparator1);
   gtk_fixed_put (GTK_FIXED (fixed2), vseparator1, 512, 32);
   gtk_widget_set_size_request (vseparator1, 16, 560);
-
-  label17 = gtk_label_new (_("Ajouter Ev\303\251nement"));
-  gtk_widget_show (label17);
-  gtk_fixed_put (GTK_FIXED (fixed2), label17, 16, 320);
-  gtk_widget_set_size_request (label17, 208, 24);
-
-  msgerror = gtk_label_new ("");
-  gtk_widget_show (msgerror);
-  gtk_fixed_put (GTK_FIXED (fixed2), msgerror, 536, 561);
-  gtk_widget_set_size_request (msgerror, 240, 31);
 
   notebook3 = gtk_notebook_new ();
   gtk_widget_show (notebook3);
@@ -319,17 +313,6 @@ create_Admin (void)
   gtk_fixed_put (GTK_FIXED (fixed3), label222, 272, 88);
   gtk_widget_set_size_request (label222, 57, 17);
 
-  comboboxentry1 = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (comboboxentry1);
-  gtk_fixed_put (GTK_FIXED (fixed3), comboboxentry1, 264, 48);
-  gtk_widget_set_size_request (comboboxentry1, 189, 29);
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Admin"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Docteur"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Coach"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Kine"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Contable"));
-  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Client"));
-
   button2 = gtk_button_new ();
   gtk_widget_show (button2);
   gtk_fixed_put (GTK_FIXED (fixed3), button2, 264, 168);
@@ -350,6 +333,17 @@ create_Admin (void)
   label29 = gtk_label_new_with_mnemonic (_("Ajouter"));
   gtk_widget_show (label29);
   gtk_box_pack_start (GTK_BOX (hbox2), label29, FALSE, FALSE, 0);
+
+  comboboxentry1 = gtk_combo_box_entry_new_text ();
+  gtk_widget_show (comboboxentry1);
+  gtk_fixed_put (GTK_FIXED (fixed3), comboboxentry1, 264, 48);
+  gtk_widget_set_size_request (comboboxentry1, 189, 29);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Admin"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Docteur"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Coach"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Kine"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Contable"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry1), _("Client"));
 
   label22 = gtk_label_new (_("Ajouter"));
   gtk_widget_show (label22);
@@ -398,11 +392,6 @@ create_Admin (void)
   gtk_fixed_put (GTK_FIXED (fixed4), label33, 264, 24);
   gtk_widget_set_size_request (label33, 49, 17);
 
-  comboboxentry2 = gtk_combo_box_entry_new_text ();
-  gtk_widget_show (comboboxentry2);
-  gtk_fixed_put (GTK_FIXED (fixed4), comboboxentry2, 256, 48);
-  gtk_widget_set_size_request (comboboxentry2, 189, 29);
-
   label31 = gtk_label_new (_("Motpasse :"));
   gtk_widget_show (label31);
   gtk_fixed_put (GTK_FIXED (fixed4), label31, 16, 144);
@@ -433,6 +422,17 @@ create_Admin (void)
   gtk_widget_show (label224);
   gtk_fixed_put (GTK_FIXED (fixed4), label224, 264, 80);
   gtk_widget_set_size_request (label224, 80, 17);
+
+  comboboxentry2 = gtk_combo_box_entry_new_text ();
+  gtk_widget_show (comboboxentry2);
+  gtk_fixed_put (GTK_FIXED (fixed4), comboboxentry2, 256, 48);
+  gtk_widget_set_size_request (comboboxentry2, 189, 29);
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry2), _("Admin"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry2), _("Docteur"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry2), _("Coach"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry2), _("Kine"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry2), _("Contable"));
+  gtk_combo_box_append_text (GTK_COMBO_BOX (comboboxentry2), _("Client"));
 
   label23 = gtk_label_new (_("Modifier"));
   gtk_widget_show (label23);
@@ -491,10 +491,20 @@ create_Admin (void)
   gtk_widget_show (label25);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook3), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook3), 3), label25);
 
-  label4 = gtk_label_new (_("Ajouter utlisateur :"));
+  msgerror = gtk_label_new ("");
+  gtk_widget_show (msgerror);
+  gtk_fixed_put (GTK_FIXED (fixed2), msgerror, 536, 561);
+  gtk_widget_set_size_request (msgerror, 240, 31);
+
+  label4 = gtk_label_new (_(" utlisateur :"));
   gtk_widget_show (label4);
   gtk_fixed_put (GTK_FIXED (fixed2), label4, 72, 16);
   gtk_widget_set_size_request (label4, 136, 32);
+
+  label17 = gtk_label_new (_(" Ev\303\251nement"));
+  gtk_widget_show (label17);
+  gtk_fixed_put (GTK_FIXED (fixed2), label17, 16, 320);
+  gtk_widget_set_size_request (label17, 208, 24);
 
   notebook2 = gtk_notebook_new ();
   gtk_widget_show (notebook2);
@@ -505,27 +515,38 @@ create_Admin (void)
   gtk_widget_show (fixed8);
   gtk_container_add (GTK_CONTAINER (notebook2), fixed8);
 
-  label37 = gtk_label_new (_("Date : "));
-  gtk_widget_show (label37);
-  gtk_fixed_put (GTK_FIXED (fixed8), label37, 240, 48);
-  gtk_widget_set_size_request (label37, 49, 17);
-
   entry9 = gtk_entry_new ();
   gtk_widget_show (entry9);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry9, 72, 48);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry9, 72, 72);
   gtk_widget_set_size_request (entry9, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry9), 8226);
 
-  label36 = gtk_label_new (_("Nom : "));
-  gtk_widget_show (label36);
-  gtk_fixed_put (GTK_FIXED (fixed8), label36, 24, 48);
-  gtk_widget_set_size_request (label36, 49, 17);
-
   entry10 = gtk_entry_new ();
   gtk_widget_show (entry10);
-  gtk_fixed_put (GTK_FIXED (fixed8), entry10, 288, 48);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry10, 288, 72);
   gtk_widget_set_size_request (entry10, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry10), 8226);
+
+  label36 = gtk_label_new (_("Nom : "));
+  gtk_widget_show (label36);
+  gtk_fixed_put (GTK_FIXED (fixed8), label36, 16, 80);
+  gtk_widget_set_size_request (label36, 49, 17);
+
+  label37 = gtk_label_new (_("Date : "));
+  gtk_widget_show (label37);
+  gtk_fixed_put (GTK_FIXED (fixed8), label37, 240, 80);
+  gtk_widget_set_size_request (label37, 49, 17);
+
+  entry88 = gtk_entry_new ();
+  gtk_widget_show (entry88);
+  gtk_fixed_put (GTK_FIXED (fixed8), entry88, 72, 16);
+  gtk_widget_set_size_request (entry88, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry88), 8226);
+
+  label225 = gtk_label_new (_("ID :"));
+  gtk_widget_show (label225);
+  gtk_fixed_put (GTK_FIXED (fixed8), label225, 16, 24);
+  gtk_widget_set_size_request (label225, 57, 17);
 
   button5 = gtk_button_new ();
   gtk_widget_show (button5);
@@ -556,27 +577,38 @@ create_Admin (void)
   gtk_widget_show (fixed9);
   gtk_container_add (GTK_CONTAINER (notebook2), fixed9);
 
-  label39 = gtk_label_new (_("Nom :"));
-  gtk_widget_show (label39);
-  gtk_fixed_put (GTK_FIXED (fixed9), label39, 16, 40);
-  gtk_widget_set_size_request (label39, 49, 17);
-
   entry11 = gtk_entry_new ();
   gtk_widget_show (entry11);
-  gtk_fixed_put (GTK_FIXED (fixed9), entry11, 64, 40);
+  gtk_fixed_put (GTK_FIXED (fixed9), entry11, 64, 72);
   gtk_widget_set_size_request (entry11, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry11), 8226);
 
-  label40 = gtk_label_new (_("Date :"));
-  gtk_widget_show (label40);
-  gtk_fixed_put (GTK_FIXED (fixed9), label40, 232, 40);
-  gtk_widget_set_size_request (label40, 49, 17);
-
   entry12 = gtk_entry_new ();
   gtk_widget_show (entry12);
-  gtk_fixed_put (GTK_FIXED (fixed9), entry12, 280, 40);
+  gtk_fixed_put (GTK_FIXED (fixed9), entry12, 288, 72);
   gtk_widget_set_size_request (entry12, 160, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry12), 8226);
+
+  label39 = gtk_label_new (_("Nom :"));
+  gtk_widget_show (label39);
+  gtk_fixed_put (GTK_FIXED (fixed9), label39, 16, 80);
+  gtk_widget_set_size_request (label39, 49, 17);
+
+  label40 = gtk_label_new (_("Date :"));
+  gtk_widget_show (label40);
+  gtk_fixed_put (GTK_FIXED (fixed9), label40, 240, 80);
+  gtk_widget_set_size_request (label40, 49, 17);
+
+  label226 = gtk_label_new (_("ID :"));
+  gtk_widget_show (label226);
+  gtk_fixed_put (GTK_FIXED (fixed9), label226, 16, 32);
+  gtk_widget_set_size_request (label226, 57, 17);
+
+  entry89 = gtk_entry_new ();
+  gtk_widget_show (entry89);
+  gtk_fixed_put (GTK_FIXED (fixed9), entry89, 64, 24);
+  gtk_widget_set_size_request (entry89, 160, 27);
+  gtk_entry_set_invisible_char (GTK_ENTRY (entry89), 8226);
 
   button6 = gtk_button_new ();
   gtk_widget_show (button6);
@@ -665,6 +697,15 @@ create_Admin (void)
   g_signal_connect ((gpointer) button4, "clicked",
                     G_CALLBACK (on_button4_clicked),
                     NULL);
+  g_signal_connect ((gpointer) button5, "clicked",
+                    G_CALLBACK (on_button5_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button6, "clicked",
+                    G_CALLBACK (on_button6_clicked),
+                    NULL);
+  g_signal_connect ((gpointer) button7, "clicked",
+                    G_CALLBACK (on_button7_clicked),
+                    NULL);
 
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (Admin, Admin, "Admin");
@@ -673,8 +714,6 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, label18, "label18");
   GLADE_HOOKUP_OBJECT (Admin, hseparator1, "hseparator1");
   GLADE_HOOKUP_OBJECT (Admin, vseparator1, "vseparator1");
-  GLADE_HOOKUP_OBJECT (Admin, label17, "label17");
-  GLADE_HOOKUP_OBJECT (Admin, msgerror, "msgerror");
   GLADE_HOOKUP_OBJECT (Admin, notebook3, "notebook3");
   GLADE_HOOKUP_OBJECT (Admin, fixed3, "fixed3");
   GLADE_HOOKUP_OBJECT (Admin, entry4, "entry4");
@@ -686,12 +725,12 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, entry85, "entry85");
   GLADE_HOOKUP_OBJECT (Admin, label26, "label26");
   GLADE_HOOKUP_OBJECT (Admin, label222, "label222");
-  GLADE_HOOKUP_OBJECT (Admin, comboboxentry1, "comboboxentry1");
   GLADE_HOOKUP_OBJECT (Admin, button2, "button2");
   GLADE_HOOKUP_OBJECT (Admin, alignment2, "alignment2");
   GLADE_HOOKUP_OBJECT (Admin, hbox2, "hbox2");
   GLADE_HOOKUP_OBJECT (Admin, image3, "image3");
   GLADE_HOOKUP_OBJECT (Admin, label29, "label29");
+  GLADE_HOOKUP_OBJECT (Admin, comboboxentry1, "comboboxentry1");
   GLADE_HOOKUP_OBJECT (Admin, label22, "label22");
   GLADE_HOOKUP_OBJECT (Admin, fixed4, "fixed4");
   GLADE_HOOKUP_OBJECT (Admin, entry6, "entry6");
@@ -701,7 +740,6 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, label223, "label223");
   GLADE_HOOKUP_OBJECT (Admin, label30, "label30");
   GLADE_HOOKUP_OBJECT (Admin, label33, "label33");
-  GLADE_HOOKUP_OBJECT (Admin, comboboxentry2, "comboboxentry2");
   GLADE_HOOKUP_OBJECT (Admin, label31, "label31");
   GLADE_HOOKUP_OBJECT (Admin, button3, "button3");
   GLADE_HOOKUP_OBJECT (Admin, alignment3, "alignment3");
@@ -709,6 +747,7 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, image4, "image4");
   GLADE_HOOKUP_OBJECT (Admin, label32, "label32");
   GLADE_HOOKUP_OBJECT (Admin, label224, "label224");
+  GLADE_HOOKUP_OBJECT (Admin, comboboxentry2, "comboboxentry2");
   GLADE_HOOKUP_OBJECT (Admin, label23, "label23");
   GLADE_HOOKUP_OBJECT (Admin, fixed5, "fixed5");
   GLADE_HOOKUP_OBJECT (Admin, entry8, "entry8");
@@ -722,13 +761,17 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, scrolledwindow2, "scrolledwindow2");
   GLADE_HOOKUP_OBJECT (Admin, treeview5, "treeview5");
   GLADE_HOOKUP_OBJECT (Admin, label25, "label25");
+  GLADE_HOOKUP_OBJECT (Admin, msgerror, "msgerror");
   GLADE_HOOKUP_OBJECT (Admin, label4, "label4");
+  GLADE_HOOKUP_OBJECT (Admin, label17, "label17");
   GLADE_HOOKUP_OBJECT (Admin, notebook2, "notebook2");
   GLADE_HOOKUP_OBJECT (Admin, fixed8, "fixed8");
-  GLADE_HOOKUP_OBJECT (Admin, label37, "label37");
   GLADE_HOOKUP_OBJECT (Admin, entry9, "entry9");
-  GLADE_HOOKUP_OBJECT (Admin, label36, "label36");
   GLADE_HOOKUP_OBJECT (Admin, entry10, "entry10");
+  GLADE_HOOKUP_OBJECT (Admin, label36, "label36");
+  GLADE_HOOKUP_OBJECT (Admin, label37, "label37");
+  GLADE_HOOKUP_OBJECT (Admin, entry88, "entry88");
+  GLADE_HOOKUP_OBJECT (Admin, label225, "label225");
   GLADE_HOOKUP_OBJECT (Admin, button5, "button5");
   GLADE_HOOKUP_OBJECT (Admin, alignment5, "alignment5");
   GLADE_HOOKUP_OBJECT (Admin, hbox5, "hbox5");
@@ -736,10 +779,12 @@ create_Admin (void)
   GLADE_HOOKUP_OBJECT (Admin, label38, "label38");
   GLADE_HOOKUP_OBJECT (Admin, label13, "label13");
   GLADE_HOOKUP_OBJECT (Admin, fixed9, "fixed9");
-  GLADE_HOOKUP_OBJECT (Admin, label39, "label39");
   GLADE_HOOKUP_OBJECT (Admin, entry11, "entry11");
-  GLADE_HOOKUP_OBJECT (Admin, label40, "label40");
   GLADE_HOOKUP_OBJECT (Admin, entry12, "entry12");
+  GLADE_HOOKUP_OBJECT (Admin, label39, "label39");
+  GLADE_HOOKUP_OBJECT (Admin, label40, "label40");
+  GLADE_HOOKUP_OBJECT (Admin, label226, "label226");
+  GLADE_HOOKUP_OBJECT (Admin, entry89, "entry89");
   GLADE_HOOKUP_OBJECT (Admin, button6, "button6");
   GLADE_HOOKUP_OBJECT (Admin, alignment6, "alignment6");
   GLADE_HOOKUP_OBJECT (Admin, hbox6, "hbox6");

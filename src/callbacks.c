@@ -81,6 +81,7 @@ void
 on_button2_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
+  ////////////////////////////////ADD USER //////////////////////////////////
   usr u;
   int test;
   char temp[10];
@@ -117,6 +118,8 @@ void
 on_button3_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
+  ////////////////////////////////UPDATE USER //////////////////////////////////
+
   usr u;
   int test;
   char temp[10];
@@ -152,6 +155,8 @@ void
 on_button4_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
+  ////////////////////////////////DELET USER //////////////////////////////////
+
     int ID;
     int test;
     GtkWidget *input1 = lookup_widget(button,"entry8");
@@ -171,6 +176,7 @@ void
 on_button5_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
+  //////////////////////////// ADD EVENT ////////////////////////////
   event e;
   int test;
   GtkWidget *output1 = lookup_widget(button,"msgerror");
@@ -194,6 +200,23 @@ void
 on_button6_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
+  ///////////////////////// UPDATE EVENT ///////////////////////
+  event e;
+  int test;
+  GtkWidget *output1 = lookup_widget(button,"msgerror");
+  GtkWidget *input1 = lookup_widget(button,"entry89");
+  e.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry11");
+  strcpy(e.NOM,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry12");
+  strcpy(e.DATE,gtk_entry_get_text(GTK_ENTRY(input3)));
+  test = verif_event(e.ID);
+  if (test == 1 ){
+    modifier_event(e);
+    gtk_label_set_text(GTK_LABEL(output1)," Evenement modifié");
+  }else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error: ID Evenement non exist!");
+  }
 
 }
 
@@ -202,5 +225,18 @@ void
 on_button7_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
 {
-
+    ///////////////////////// DELET EVENT ///////////////////////
+      int ID;
+      int test;
+      GtkWidget *input1 = lookup_widget(button,"entry13");
+      ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+      GtkWidget *output1 = lookup_widget(button,"msgerror");
+      test = verif_event(ID);
+      if (test == 1 )
+      {
+        supprimer_event(ID);
+        gtk_label_set_text(GTK_LABEL(output1),"Evenement Supprimé");
+      }else {
+        gtk_label_set_text(GTK_LABEL(output1),"Error: ID Evenement non exist !");
+      }
 }

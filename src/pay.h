@@ -6,8 +6,8 @@ struct Paiment
 {
     int ID;
     int NBMOIS;
-    char NOM[40];
-    char DATE[20];
+    char NOM[50];
+    char DATE[30];
 };
 typedef struct Paiment pmt;
 
@@ -15,7 +15,7 @@ void ajouter_paiment(pmt);
 void modifier_paiment(pmt);
 void supprimer_paiment(int);
 void accedernom(int,char[]);
-
+int verif_paiment(int);
 
 
 #endif //PAIEMENT_H_INCLUDED

@@ -248,6 +248,7 @@ void
 on_entry90_changed                     (GtkWidget     *editable,
                                       gpointer         user_data)
 {
+  //////////////////////////// ADD PAY ///////////////////////////////
   char nom[40];
   int ID;
   GtkWidget *input1 = lookup_widget(editable,"entry90");
@@ -265,6 +266,7 @@ on_button29_clicked                    (GtkWidget       *button,
   pmt pt;
   int j,m,a;
   char nom[40];
+  GtkWidget *output1 = lookup_widget(button,"msgp");
   GtkWidget *input1 = lookup_widget(button,"entry90");
   pt.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
   GtkWidget * nbrmois = lookup_widget(button,"spinbutton8");
@@ -278,6 +280,88 @@ on_button29_clicked                    (GtkWidget       *button,
   sprintf(pt.DATE,"%d/%d/%d",j,m,a);
   GtkWidget *inputnom = lookup_widget(button,"entry92");
   strcpy(pt.NOM,gtk_entry_get_text(GTK_ENTRY(inputnom)));
-  ajouter_paiment(pt);
+  if(strcmp(pt.NOM,"Le client n'existe pas") == 0 || verif_paiment(pt.ID) == 1){
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Paiement Ajouté");
+      ajouter_paiment(pt);
+  }
 
+
+}
+///////////////////////// UPDATE PAY ///////////////////////////
+void
+on_entry91_changed                     (GtkWidget     *editable,
+                                        gpointer         user_data)
+{
+  char nom[40];
+  int ID;
+  GtkWidget *input1 = lookup_widget(editable,"entry91");
+  GtkWidget *output1 = lookup_widget(editable,"entry93");
+  ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  accedernom(ID,nom);
+  gtk_entry_set_text(GTK_ENTRY(output1),nom);
+}
+
+
+void
+on_button28_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  pmt pt;
+  int j,m,a;
+  char nom[40];
+  GtkWidget *output1 = lookup_widget(button,"msgp");
+  GtkWidget *input1 = lookup_widget(button,"entry91");
+  pt.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  GtkWidget * nbrmois = lookup_widget(button,"spinbutton12");
+  pt.NBMOIS = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (nbrmois));
+  GtkWidget * jour = lookup_widget(button, "spinbutton13");
+  j = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (jour));
+  GtkWidget * mois = lookup_widget(button, "spinbutton14");
+  m = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (mois));
+  GtkWidget * annee = lookup_widget(button, "spinbutton15");
+  a = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (annee));
+  sprintf(pt.DATE,"%d/%d/%d",j,m,a);
+  GtkWidget *inputnom = lookup_widget(button,"entry93");
+  strcpy(pt.NOM,gtk_entry_get_text(GTK_ENTRY(inputnom)));
+  if(strcmp(pt.NOM,"Le client n'existe pas") == 0 ||verif_paiment(pt.ID) == 0 ){
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Paiement Modifié");
+      modifier_paiment(pt);
+  }
+
+}
+
+void
+on_entry94_changed                     (GtkWidget     *editable,
+                                        gpointer         user_data)
+{
+  char nom[40];
+  int ID;
+  GtkWidget *input1 = lookup_widget(editable,"entry94");
+  GtkWidget *output1 = lookup_widget(editable,"entry95");
+  ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  accedernom(ID,nom);
+  gtk_entry_set_text(GTK_ENTRY(output1),nom);
+}
+
+
+void
+on_button30_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  pmt pt;
+  int ID;
+  GtkWidget *output1 = lookup_widget(button,"msgp");
+  GtkWidget *input1 = lookup_widget(button,"entry94");
+  ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  if (verif_paiment(ID) == 1 ){
+      supprimer_paiment(ID);
+      gtk_label_set_text(GTK_LABEL(output1),"Paiement supprimé");
+  }else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+
+  }
 }

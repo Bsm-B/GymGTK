@@ -41,7 +41,6 @@ void supprimer_paiment(int id)
   FILE*ftemp;
   f=fopen("paiment.txt","r");
 	ftemp=fopen("paiment.tmp","w");
-
   while(fscanf(f,"%d %d %s %s \n",&pt.ID,&pt.NBMOIS,pt.NOM,pt.DATE)!=EOF)
   {
     		if(id != pt.ID)
@@ -69,9 +68,28 @@ f=fopen("users.txt","r");
   {
     if (u.ID == idx)
     {
-      sprintf(nom,"%s %s",u.NOM,u.PRENOM);
+      sprintf(nom,"%s_%s",u.NOM,u.PRENOM);
     }
   }
 fclose(f);
 }
+}
+
+int verif_paiment(int idx)
+{
+	pmt pt;
+	FILE*f;
+	f=fopen("paiment.txt","r");
+	if(f!=NULL)
+	{
+    while(fscanf(f,"%d %d %s %s \n",&pt.ID,&pt.NBMOIS,pt.NOM,pt.DATE)!=EOF)
+		{
+      if (pt.ID == idx)
+			{
+				return 1;
+			}
+		}
+		return 0;
+	fclose(f);
+	}
 }

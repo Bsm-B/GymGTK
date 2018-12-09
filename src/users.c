@@ -30,7 +30,7 @@ void ajouter_user(usr u)
 	f=fopen("users.txt","a+");
 	fprintf(f,"%s %s %d %d %d \n",u.NOM,u.PRENOM,u.ID,u.PASS,u.ROLE);
 	fclose(f);
-  ajouter_profile(p);
+  if(u.ROLE == 6) ajouter_profile(p);
 }
 
 int verif_user(int idx)
@@ -100,5 +100,5 @@ void supprimer_user(int id)
 	fclose(ftemp);
 	remove("users.txt");
 	rename("users.tmp","users.txt");
-  supprimer_profile(u.ID);
+  if(u.ROLE == 6) supprimer_profile(u.ID);
 }

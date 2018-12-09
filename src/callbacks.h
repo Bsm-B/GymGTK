@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include <string.h>
+#include <stdlib.h>
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -50,4 +51,20 @@ on_button30_clicked                    (GtkWidget       *button,
 
 void
 on_entry94_changed                     (GtkWidget     *editable,
+                                        gpointer         user_data);
+
+void
+on_button18_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button19_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button20_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button31_clicked                    (GtkWidget       *button,
                                         gpointer         user_data);

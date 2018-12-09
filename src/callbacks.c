@@ -11,7 +11,8 @@
 #include "event.h"
 #include "profile.h"
 #include "pay.h"
-
+#include "fichemed.h"
+#include "emploimed.h"
 void
 on_button1_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
@@ -35,15 +36,19 @@ on_button1_clicked                     (GtkWidget       *button,
     u = verifierlogin(atoi(user_txt),atoi(pass_txt));
     switch (u.ROLE) {
       case 1:
+
       Admin = create_Admin();
       gtk_widget_destroy(Login);
       gtk_widget_show(Admin);
+
       break;
 
       case 2:
       Dector = create_Dector();
       gtk_widget_destroy(Login);
       gtk_widget_show(Dector);
+      GtkWidget *output = lookup_widget(GTK_WIDGET(Dector),"ID");
+      gtk_label_set_text(GTK_LABEL(output),user_txt);
       break;
 
       case 3:
@@ -56,6 +61,7 @@ on_button1_clicked                     (GtkWidget       *button,
       kine = create_kine();
       gtk_widget_destroy(Login);
       gtk_widget_show(kine);
+
       break;
 
       case 5:
@@ -364,4 +370,103 @@ on_button30_clicked                    (GtkWidget       *button,
     gtk_label_set_text(GTK_LABEL(output1),"Error");
 
   }
+}
+
+/*************************DECTOR CONTROL PANEL************************/
+void
+on_button18_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  med m;
+  int test1,test2;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"entry96");
+  m.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry18");
+  strcpy(m.NOM,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry19");
+  strcpy(m.PRENOM,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry20");
+  strcpy(m.EMAIL,gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry22");
+  strcpy(m.TEL,gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry15");
+  strcpy(m.MALADE,gtk_combo_box_get_active_text(GTK_COMBO_BOX(comboinput1)));
+  GtkWidget *input6 = lookup_widget(button,"entry21");
+  m.POIDS = atoi(gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry23");
+  m.LONG = atoi(gtk_entry_get_text(GTK_ENTRY(input7)));
+  test1  = verif_user(m.ID);
+  test2 = verif_med(m.ID);
+  if (test1 == 1 && test2 == 0){
+    ajouter_med(m);
+    gtk_label_set_text(GTK_LABEL(output1),"ficher Ajouté");
+  }else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }
+
+
+}
+
+
+void
+on_button19_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  med m;
+  int test;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"entry97");
+  m.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry24");
+  strcpy(m.NOM,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry25");
+  strcpy(m.PRENOM,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry26");
+  strcpy(m.EMAIL,gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry28");
+  strcpy(m.TEL,gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry36");
+  strcpy(m.MALADE,gtk_combo_box_get_active_text(GTK_COMBO_BOX(comboinput1)));
+  GtkWidget *input6 = lookup_widget(button,"entry27");
+  m.POIDS = atoi(gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry29");
+  m.LONG = atoi(gtk_entry_get_text(GTK_ENTRY(input7)));
+  test = verif_med(m.ID);
+  if (test == 1){
+    modifier_med(m);
+    gtk_label_set_text(GTK_LABEL(output1),"ficher modifié");
+
+  }else{
+    gtk_label_set_text(GTK_LABEL(output1),"error");
+
+  }
+}
+
+
+void
+on_button20_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  int test,id;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"entry97");
+  id = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
+  test = verif_med(id);
+  if (test == 1){
+    supprimer_med(id);
+    gtk_label_set_text(GTK_LABEL(output1),"ficher supprime");
+  }else{
+    gtk_label_set_text(GTK_LABEL(output1),"error");
+  }
+}
+
+void
+on_button31_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+empltmed em;
+GtkWidget *output1 = lookup_widget(button,"msg");
+GtkWidget *input1 = lookup_widget(button,"ID");
+em.ID = gtk_label_get_text(GTK_LABEL(input1));
 }

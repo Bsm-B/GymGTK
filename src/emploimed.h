@@ -1,7 +1,8 @@
 #ifndef EMPLOIMED_H_INCLUDED
 #define EMPLOIMED_H_INCLUDED
 
-
+#include <stdio.h>
+#include <string.h>
 
 typedef struct
 {
@@ -19,7 +20,7 @@ typedef struct
 void ajouter_emploimed (empltmed);
 void modifier_emploimed (empltmed);
 void supprimer_emploimed(int);
-
+int verif_evmploimed (int);
 
 
 #endif

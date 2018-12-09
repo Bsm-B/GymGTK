@@ -94,3 +94,29 @@ void supprimer_emploimed(int id)
 	remove("emploimed.txt");
 	rename("emploimed.tmp","emploimed.txt");
 }
+
+int verif_evmploimed(int idx)
+{
+	empltmed em;
+	FILE*f;
+	f=fopen("emploimed.txt","r");
+	if(f!=NULL)
+	{
+    while(fscanf(f,"%d %s %s %s %s %s %s %s %s %s %s %s %s %s %s \n",&em.ID,
+    em.JRMED[0].JOUR,em.JRMED[0].DATE,
+    em.JRMED[1].JOUR,em.JRMED[1].DATE,
+    em.JRMED[2].JOUR,em.JRMED[2].DATE,
+    em.JRMED[3].JOUR,em.JRMED[3].DATE,
+    em.JRMED[4].JOUR,em.JRMED[4].DATE,
+    em.JRMED[5].JOUR,em.JRMED[5].DATE,
+    em.JRMED[6].JOUR,em.JRMED[6].DATE)!=EOF)
+		{
+      if (em.ID == idx)
+			{
+				return 1;
+			}
+		}
+		return 0;
+	fclose(f);
+	}
+}

@@ -102,7 +102,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_project_gtk_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT) \
 	event.$(OBJEXT) profile.$(OBJEXT) pay.$(OBJEXT) \
-	fichemed.$(OBJEXT)
+	fichemed.$(OBJEXT) emploimed.$(OBJEXT)
 project_gtk_OBJECTS = $(am_project_gtk_OBJECTS)
 am__DEPENDENCIES_1 =
 project_gtk_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -287,7 +287,8 @@ project_gtk_SOURCES = \
 	event.c	event.h \
 	profile.c profile.h	\
 	pay.c	pay.h	\
-	fichemed.c fichemed.h
+	fichemed.c fichemed.h \
+	emploimed.c	emploimed.h
 
 project_gtk_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
@@ -377,6 +378,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/callbacks.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/emploimed.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/fichemed.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/interface.Po@am__quote@

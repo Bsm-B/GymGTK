@@ -13,6 +13,7 @@
 #include "pay.h"
 #include "fichemed.h"
 #include "emploimed.h"
+
 void
 on_button1_clicked                     (GtkWidget       *button,
                                         gpointer         user_data)
@@ -468,5 +469,89 @@ on_button31_clicked                    (GtkWidget       *button,
 empltmed em;
 GtkWidget *output1 = lookup_widget(button,"msg");
 GtkWidget *input1 = lookup_widget(button,"ID");
-em.ID = gtk_label_get_text(GTK_LABEL(input1));
+em.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+strcpy(em.JRMED[0].JOUR,"Lundi");
+strcpy(em.JRMED[1].JOUR,"Mardi");
+strcpy(em.JRMED[2].JOUR,"Mercredi");
+strcpy(em.JRMED[3].JOUR,"Jeudi");
+strcpy(em.JRMED[4].JOUR,"Vendredi");
+strcpy(em.JRMED[5].JOUR,"Samedi");
+strcpy(em.JRMED[6].JOUR,"Dimanche");
+GtkWidget *input2 = lookup_widget(button,"entry61");
+strcpy(em.JRMED[0].DATE,gtk_entry_get_text(GTK_ENTRY(input2)));
+GtkWidget *input3 = lookup_widget(button,"entry62");
+strcpy(em.JRMED[1].DATE,gtk_entry_get_text(GTK_ENTRY(input3)));
+GtkWidget *input4 = lookup_widget(button,"entry65");
+strcpy(em.JRMED[2].DATE,gtk_entry_get_text(GTK_ENTRY(input4)));
+GtkWidget *input5 = lookup_widget(button,"entry67");
+strcpy(em.JRMED[3].DATE,gtk_entry_get_text(GTK_ENTRY(input5)));
+GtkWidget *input6 = lookup_widget(button,"entry63");
+strcpy(em.JRMED[4].DATE,gtk_entry_get_text(GTK_ENTRY(input6)));
+GtkWidget *input7 = lookup_widget(button,"entry64");
+strcpy(em.JRMED[5].DATE,gtk_entry_get_text(GTK_ENTRY(input7)));
+GtkWidget *input8 = lookup_widget(button,"entry66");
+strcpy(em.JRMED[6].DATE,gtk_entry_get_text(GTK_ENTRY(input8)));
+if (verif_evmploimed(em.ID) == 0){
+    ajouter_emploimed(em);
+    gtk_label_set_text(GTK_LABEL(output1),"Emploit Ajouté");
+}else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+}
+
+}
+
+void
+on_button39_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  empltmed em;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  em.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  strcpy(em.JRMED[0].JOUR,"Lundi");
+  strcpy(em.JRMED[1].JOUR,"Mardi");
+  strcpy(em.JRMED[2].JOUR,"Mercredi");
+  strcpy(em.JRMED[3].JOUR,"Jeudi");
+  strcpy(em.JRMED[4].JOUR,"Vendredi");
+  strcpy(em.JRMED[5].JOUR,"Samedi");
+  strcpy(em.JRMED[6].JOUR,"Dimanche");
+  GtkWidget *input2 = lookup_widget(button,"entry98");
+  strcpy(em.JRMED[0].DATE,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry99");
+  strcpy(em.JRMED[1].DATE,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry102");
+  strcpy(em.JRMED[2].DATE,gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry104");
+  strcpy(em.JRMED[3].DATE,gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *input6 = lookup_widget(button,"entry100");
+  strcpy(em.JRMED[4].DATE,gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry101");
+  strcpy(em.JRMED[5].DATE,gtk_entry_get_text(GTK_ENTRY(input7)));
+  GtkWidget *input8 = lookup_widget(button,"entry103");
+  strcpy(em.JRMED[6].DATE,gtk_entry_get_text(GTK_ENTRY(input8)));
+  if (verif_evmploimed(em.ID) == 1){
+      modifier_emploimed(em);
+      gtk_label_set_text(GTK_LABEL(output1),"Emploit Modifié");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }
+
+}
+
+void
+on_button33_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  int id;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+
+if (verif_evmploimed(id) == 1 ){
+    supprimer_emploimed(id);
+    gtk_label_set_text(GTK_LABEL(output1),"Emploit Suprrimer");
+}else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+}
+
 }

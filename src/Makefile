@@ -102,7 +102,7 @@ PROGRAMS = $(bin_PROGRAMS)
 am_project_gtk_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT) \
 	event.$(OBJEXT) profile.$(OBJEXT) pay.$(OBJEXT) \
-	fichemed.$(OBJEXT) emploimed.$(OBJEXT)
+	fichemed.$(OBJEXT) emploimed.$(OBJEXT) kine.$(OBJEXT)
 project_gtk_OBJECTS = $(am_project_gtk_OBJECTS)
 am__DEPENDENCIES_1 =
 project_gtk_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -288,7 +288,8 @@ project_gtk_SOURCES = \
 	profile.c profile.h	\
 	pay.c	pay.h	\
 	fichemed.c fichemed.h \
-	emploimed.c	emploimed.h
+	emploimed.c	emploimed.h \
+	kine.c	kine.h
 
 project_gtk_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS)
 all: all-am
@@ -382,6 +383,7 @@ include ./$(DEPDIR)/emploimed.Po
 include ./$(DEPDIR)/event.Po
 include ./$(DEPDIR)/fichemed.Po
 include ./$(DEPDIR)/interface.Po
+include ./$(DEPDIR)/kine.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/pay.Po
 include ./$(DEPDIR)/profile.Po

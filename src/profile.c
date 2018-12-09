@@ -21,7 +21,7 @@ void supprimer_profile(int id)
   {
     		if(id != p.ID)
     		{
-fprintf(f,"%d %s %s %s %s %f %f\n",p.ID,p.NOM,p.PRENOM,p.EMAIL,p.TEL,p.POIDS,p.LONG);
+          fprintf(ftemp,"%d %s %s %s %s %f %f\n",p.ID,p.NOM,p.PRENOM,p.EMAIL,p.TEL,p.POIDS,p.LONG);
     		}
 	}
 	fclose(f);

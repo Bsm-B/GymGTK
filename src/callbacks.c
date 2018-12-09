@@ -13,6 +13,7 @@
 #include "pay.h"
 #include "fichemed.h"
 #include "emploimed.h"
+#include "kine.h"
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -30,6 +31,7 @@ on_button1_clicked                     (GtkWidget       *button,
     GtkWidget *User;
     char user_txt[30];
     char pass_txt[30];
+    char nom[40];
     usr u;
     strcpy(user_txt,gtk_entry_get_text(GTK_ENTRY(user)));
     strcpy(pass_txt,gtk_entry_get_text(GTK_ENTRY(pwd)));
@@ -62,6 +64,12 @@ on_button1_clicked                     (GtkWidget       *button,
       kine = create_kine();
       gtk_widget_destroy(Login);
       gtk_widget_show(kine);
+      GtkWidget *output1 = lookup_widget(GTK_WIDGET(kine),"ID");
+      gtk_label_set_text(GTK_LABEL(output1),user_txt);
+      accedernom(atoi(user_txt),nom);
+      GtkWidget *output2 = lookup_widget(GTK_WIDGET(kine),"Nom");
+      gtk_label_set_text(GTK_LABEL(output2),nom);
+
 
       break;
 
@@ -554,4 +562,88 @@ if (verif_evmploimed(id) == 1 ){
     gtk_label_set_text(GTK_LABEL(output1),"Error");
 }
 
+}
+
+void
+on_button40_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  kine k;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  k.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *input9 = lookup_widget(button,"Nom");
+  strcpy(k.NOM,gtk_label_get_text(GTK_LABEL(input9)));
+  GtkWidget *input2 = lookup_widget(button,"entry105");
+  strcpy(k.DATE[0].D,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry106");
+  strcpy(k.DATE[1].D,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry109");
+  strcpy(k.DATE[2].D,gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry111");
+  strcpy(k.DATE[3].D,gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *input6 = lookup_widget(button,"entry107");
+  strcpy(k.DATE[4].D,gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry108");
+  strcpy(k.DATE[5].D,gtk_entry_get_text(GTK_ENTRY(input7)));
+  GtkWidget *input8 = lookup_widget(button,"entry110");
+  strcpy(k.DATE[6].D,gtk_entry_get_text(GTK_ENTRY(input8)));
+
+  if (verif_kine(k.ID) == 0){
+      ajouter_kine(k);
+      gtk_label_set_text(GTK_LABEL(output1),"Emploit Ajouté");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }
+}
+
+
+void
+on_button41_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  kine k;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  k.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *input9 = lookup_widget(button,"Nom");
+  strcpy(k.NOM,gtk_label_get_text(GTK_LABEL(input9)));
+  GtkWidget *input2 = lookup_widget(button,"entry112");
+  strcpy(k.DATE[0].D,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry113");
+  strcpy(k.DATE[1].D,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry116");
+  strcpy(k.DATE[2].D,gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry118");
+  strcpy(k.DATE[3].D,gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *input6 = lookup_widget(button,"entry114");
+  strcpy(k.DATE[4].D,gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry115");
+  strcpy(k.DATE[5].D,gtk_entry_get_text(GTK_ENTRY(input7)));
+  GtkWidget *input8 = lookup_widget(button,"entry117");
+  strcpy(k.DATE[6].D,gtk_entry_get_text(GTK_ENTRY(input8)));
+
+  if (verif_kine(k.ID) == 1){
+      modifier_kine(k);
+      gtk_label_set_text(GTK_LABEL(output1),"Emploit Modifié");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }
+}
+
+void
+on_button38_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  int id;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+
+if (verif_kine(id) == 1 ){
+    supprimer_kine(id);
+    gtk_label_set_text(GTK_LABEL(output1),"Emploit Suprrimer");
+}else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+}
 }

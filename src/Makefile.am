@@ -17,6 +17,7 @@ project_gtk_SOURCES = \
 	profile.c profile.h	\
 	pay.c	pay.h	\
 	fichemed.c fichemed.h \
-	emploimed.c	emploimed.h
+	emploimed.c	emploimed.h \
+	kine.c	kine.h
 
 project_gtk_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)

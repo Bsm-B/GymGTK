@@ -1,3 +1,1 @@
-300 soha azdin ra@d 215587 12,000000 3,000000
-187 ramla ahmed ram@ro.tf 5145654 5,000000 15,000000
-123 houda roda gjdf@sf.th 25555556 58,000000 55,000000
+6 rhouma wafa empty empty 0,000000 0,000000

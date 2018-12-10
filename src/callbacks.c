@@ -130,7 +130,7 @@ on_button2_clicked                     (GtkWidget       *button,
   ////////////////////////////////ADD USER //////////////////////////////////
   usr u;
   int test;
-  char temp[10];
+  char temp[20];
   GtkWidget *output1 = lookup_widget(button,"msgerror");
   GtkWidget *input1 = lookup_widget(button,"entry84");
   u.ID = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
@@ -143,11 +143,12 @@ on_button2_clicked                     (GtkWidget       *button,
   GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry1");
   strcpy(temp,gtk_combo_box_get_active_text(GTK_COMBO_BOX(comboinput1)));
   if (strcmp(temp,"Admin") == 0 ) u.ROLE = 1;
-  else if (strcmp(temp,"Docteur") == 0 )  u.ROLE = 2;
+  else if (strcmp(temp,"Nutritionniste") == 0 )  u.ROLE = 2;
   else if (strcmp(temp,"Coach") == 0 )    u.ROLE = 3;
   else if (strcmp(temp,"Kine") == 0 )     u.ROLE = 4;
-  else if (strcmp(temp,"Contable") == 0 ) u.ROLE = 5;
-  else if (strcmp(temp,"Client") == 0 )   u.ROLE = 6;
+  else if (strcmp(temp,"Financier") == 0 ) u.ROLE = 5;
+  else if (strcmp(temp,"Adherent") == 0 )   u.ROLE = 6;
+
   else u.ROLE = -1; // Error
   test = verif_user(u.ID);
   if (test == 0 &&  u.ROLE != -1 ){
@@ -797,7 +798,7 @@ if (verif_coach(id) == 1 ){
 }
 
 }
-
+ //////////////////////// UPDATE PROFILE /////////////////////
 void
 on_button27_clicked                    (GtkWidget       *button,
                                         gpointer         user_data)
@@ -818,6 +819,7 @@ on_button27_clicked                    (GtkWidget       *button,
   GtkWidget *input7 = lookup_widget(button,"entry52");
   p.LONG = atof(gtk_entry_get_text(GTK_ENTRY(input7)));
   modifier_profile(p);
+  /////////////////////////////////////
   prfl p2;
   char x1[20],x2[20];
   p2 = search(p.ID);

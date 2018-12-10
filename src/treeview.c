@@ -782,11 +782,11 @@ void afficher_kine(GtkWidget *treeview)
  					gtk_list_store_append (store, &iter);
  					gtk_list_store_set (store, &iter,ID_COACH,id,NOM_COACH,nom,DATE_COATCH1,date1,DATE_COATCH2,date2,
  						DATE_COATCH3,date3,DATE_COATCH4,date4,DATE_COATCH5,date5,DATE_COATCH6,date6,DATE_COATCH7,date7,-1);
-					}
+
    		}
        fclose(f);
      }
      gtk_tree_view_set_model (GTK_TREE_VIEW (treeview), GTK_TREE_MODEL (store));
-
      g_object_unref (store);
  }
+}

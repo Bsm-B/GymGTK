@@ -72,6 +72,13 @@ prfl search(int idx)
 				return p;
 			}
 		}
+    p.ID = 0;
+    strcpy(p.NOM,"_");
+    strcpy(p.PRENOM,"_");
+    strcpy(p.EMAIL,"_");
+    strcpy(p.TEL,"_");
+    p.POIDS = 0;
+    p.LONG = 0;
 
 		return p;
 	fclose(f);

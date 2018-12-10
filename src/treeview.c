@@ -679,7 +679,7 @@ void afficher_kine(GtkWidget *treeview)
   	  }
      else
    	{
- 			while(fscanf(f,"%d %s Lundi %s Mardi %s Mercredi %s Jeudi %s Vendredi %s Samedi %s Dimanche %s \n",
+ 			while(fscanf(f,"%d %s %s %s %s %s %s %s %s %s %s %s %s %s %s \n",
  	    &id,nom,
  	    date1,date2,date3,date4,
  	    date5,date6,date7)!=EOF)
@@ -718,6 +718,13 @@ void afficher_kine(GtkWidget *treeview)
  	char date5[20];
  	char date6[20];
  	char date7[20];
+	char date10[20];
+ char date20[20];
+ char date30[20];
+ char date40[20];
+ char date50[20];
+ char date60[20];
+ char date70[20];
 
  	FILE *f;
 
@@ -773,7 +780,7 @@ void afficher_kine(GtkWidget *treeview)
   	  }
      else
    	{
- 			while(fscanf(f,"%d %s Lundi %s Mardi %s Mercredi %s Jeudi %s Vendredi %s Samedi %s Dimanche %s \n",
+ 			while(fscanf(f,"%d Lundi %s Mardi %s Mercredi %s Jeudi %s Vendredi %s Samedi %s Dimanche %s \n",
  	    &id,nom,
  	    date1,date2,date3,date4,
  	    date5,date6,date7)!=EOF)

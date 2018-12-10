@@ -870,7 +870,7 @@ on_button48_clicked                    (GtkWidget       *button,
   GtkWidget *input1 = lookup_widget(button,"ID");
   int id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
   GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview7");
-  afficher_medecin_1(aff,id);
+  afficher_coach(aff);
 }
 
 void

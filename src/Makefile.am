@@ -19,6 +19,7 @@ project_gtk_SOURCES = \
 	fichemed.c fichemed.h \
 	emploimed.c	emploimed.h \
 	kine.c	kine.h \
-	coach.c	coach.h
+	coach.c	coach.h	\
+	treeview.c treeview.h
 
 project_gtk_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)

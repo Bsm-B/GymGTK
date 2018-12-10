@@ -15,6 +15,7 @@
 #include "emploimed.h"
 #include "kine.h"
 #include "coach.h"
+#include "treeview.h"
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -801,4 +802,12 @@ on_button27_clicked                    (GtkWidget       *button,
   gtk_label_set_text(GTK_LABEL(output11),x1);
   GtkWidget *output12 = lookup_widget(GTK_WIDGET(button),"label320");
   gtk_label_set_text(GTK_LABEL(output12),x2);
+}
+//////////////////////////// AFFICHER /////////////////////////////////////
+void
+on_button45_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *aff1 = lookup_widget(GTK_WIDGET(button),"treeview4");
+  afficher_event(aff1);
 }

@@ -103,7 +103,7 @@ am_project_gtk_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT) \
 	event.$(OBJEXT) profile.$(OBJEXT) pay.$(OBJEXT) \
 	fichemed.$(OBJEXT) emploimed.$(OBJEXT) kine.$(OBJEXT) \
-	coach.$(OBJEXT)
+	coach.$(OBJEXT) treeview.$(OBJEXT)
 project_gtk_OBJECTS = $(am_project_gtk_OBJECTS)
 am__DEPENDENCIES_1 =
 project_gtk_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -291,7 +291,8 @@ project_gtk_SOURCES = \
 	fichemed.c fichemed.h \
 	emploimed.c	emploimed.h \
 	kine.c	kine.h \
-	coach.c	coach.h
+	coach.c	coach.h	\
+	treeview.c treeview.h
 
 project_gtk_LDADD = @PACKAGE_LIBS@ $(INTLLIBS)
 all: all-am
@@ -391,6 +392,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pay.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/profile.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/support.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/treeview.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/users.Po@am__quote@
 
 .c.o:

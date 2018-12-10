@@ -120,3 +120,39 @@ on_button47_clicked                    (GtkWidget       *button,
 void
 on_Search_clicked                      (GtkWidget       *button,
                                         gpointer         user_data);
+
+void
+on_button48_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button49_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button52_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button50_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button53_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button54_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button24_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button25_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_button26_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);

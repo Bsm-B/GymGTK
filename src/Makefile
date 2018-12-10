@@ -103,7 +103,7 @@ am_project_gtk_OBJECTS = main.$(OBJEXT) support.$(OBJEXT) \
 	interface.$(OBJEXT) callbacks.$(OBJEXT) users.$(OBJEXT) \
 	event.$(OBJEXT) profile.$(OBJEXT) pay.$(OBJEXT) \
 	fichemed.$(OBJEXT) emploimed.$(OBJEXT) kine.$(OBJEXT) \
-	coach.$(OBJEXT) treeview.$(OBJEXT)
+	coach.$(OBJEXT) treeview.$(OBJEXT) reserver.$(OBJEXT)
 project_gtk_OBJECTS = $(am_project_gtk_OBJECTS)
 am__DEPENDENCIES_1 =
 project_gtk_DEPENDENCIES = $(am__DEPENDENCIES_1)
@@ -292,7 +292,8 @@ project_gtk_SOURCES = \
 	emploimed.c	emploimed.h \
 	kine.c	kine.h \
 	coach.c	coach.h	\
-	treeview.c treeview.h
+	treeview.c treeview.h \
+	reserver.c reserver.h
 
 project_gtk_LDADD = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype $(INTLLIBS)
 all: all-am
@@ -391,6 +392,7 @@ include ./$(DEPDIR)/kine.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/pay.Po
 include ./$(DEPDIR)/profile.Po
+include ./$(DEPDIR)/reserver.Po
 include ./$(DEPDIR)/support.Po
 include ./$(DEPDIR)/treeview.Po
 include ./$(DEPDIR)/users.Po

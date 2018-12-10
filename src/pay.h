@@ -2,6 +2,7 @@
 #define PAY_H_INCLUDED
 #include <stdio.h>
 #include <string.h>
+
 struct Paiment
 {
     int ID;

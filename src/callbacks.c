@@ -16,6 +16,7 @@
 #include "kine.h"
 #include "coach.h"
 #include "treeview.h"
+#include "reserver.h"
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -114,7 +115,7 @@ on_button1_clicked                     (GtkWidget       *button,
       break;
 
       default:
-      gtk_label_set_text(GTK_LABEL(error),"id ou mot passe sont incorrect");
+      gtk_label_set_text(GTK_LABEL(error),"id ou mot passe sont incorrect !!");
       break;
     }
 }
@@ -441,6 +442,8 @@ void
 on_button18_clicked                    (GtkWidget       *button,
                                         gpointer         user_data)
 {
+
+   /**************** ADD ****************/
   med m;
   int test1,test2;
   GtkWidget *output1 = lookup_widget(button,"msg");
@@ -457,9 +460,9 @@ on_button18_clicked                    (GtkWidget       *button,
   GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry15");
   strcpy(m.MALADE,gtk_combo_box_get_active_text(GTK_COMBO_BOX(comboinput1)));
   GtkWidget *input6 = lookup_widget(button,"entry21");
-  m.POIDS = atoi(gtk_entry_get_text(GTK_ENTRY(input6)));
+  m.POIDS = atof(gtk_entry_get_text(GTK_ENTRY(input6)));
   GtkWidget *input7 = lookup_widget(button,"entry23");
-  m.LONG = atoi(gtk_entry_get_text(GTK_ENTRY(input7)));
+  m.LONG = atof(gtk_entry_get_text(GTK_ENTRY(input7)));
   test1  = verif_user(m.ID);
   test2 = verif_med(m.ID);
   if (test1 == 1 && test2 == 0){
@@ -477,6 +480,7 @@ void
 on_button19_clicked                    (GtkWidget       *button,
                                         gpointer         user_data)
 {
+   /******************** update ******************/
   med m;
   int test;
   GtkWidget *output1 = lookup_widget(button,"msg");
@@ -493,16 +497,16 @@ on_button19_clicked                    (GtkWidget       *button,
   GtkWidget *comboinput1 = lookup_widget(button, "comboboxentry36");
   strcpy(m.MALADE,gtk_combo_box_get_active_text(GTK_COMBO_BOX(comboinput1)));
   GtkWidget *input6 = lookup_widget(button,"entry27");
-  m.POIDS = atoi(gtk_entry_get_text(GTK_ENTRY(input6)));
+  m.POIDS = atof(gtk_entry_get_text(GTK_ENTRY(input6)));
   GtkWidget *input7 = lookup_widget(button,"entry29");
-  m.LONG = atoi(gtk_entry_get_text(GTK_ENTRY(input7)));
+  m.LONG = atof(gtk_entry_get_text(GTK_ENTRY(input7)));
   test = verif_med(m.ID);
   if (test == 1){
     modifier_med(m);
     gtk_label_set_text(GTK_LABEL(output1),"ficher modifié");
 
   }else{
-    gtk_label_set_text(GTK_LABEL(output1),"error");
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
 
   }
 }
@@ -512,16 +516,18 @@ void
 on_button20_clicked                    (GtkWidget       *button,
                                         gpointer         user_data)
 {
+
+   ///////////////***********************Delect ******/
   int test,id;
   GtkWidget *output1 = lookup_widget(button,"msg");
-  GtkWidget *input1 = lookup_widget(button,"entry97");
+  GtkWidget *input1 = lookup_widget(button,"entry30");
   id = atoi(gtk_entry_get_text(GTK_ENTRY(input1)));
   test = verif_med(id);
   if (test == 1){
     supprimer_med(id);
     gtk_label_set_text(GTK_LABEL(output1),"ficher supprime");
   }else{
-    gtk_label_set_text(GTK_LABEL(output1),"error");
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
   }
 }
 
@@ -853,4 +859,115 @@ on_button47_clicked                    (GtkWidget       *button,
 {
   GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview16");
   afficher_pay(aff);
+}
+
+void
+on_button48_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  int id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview7");
+  afficher_medecin_1(aff,id);
+}
+
+void
+on_button49_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  int id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview14");
+  afficher_medecin_1(aff,id);
+
+  GtkWidget *aff2 = lookup_widget(GTK_WIDGET(button),"treeview9");
+  afficher_medecin(aff2);
+
+}
+
+void
+on_button52_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  int id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview11");
+afficher_medecin_1(aff,id);
+}
+
+
+void
+on_button50_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview10");
+  afficher_event(aff);
+}
+
+
+void
+on_button53_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *aff1 = lookup_widget(GTK_WIDGET(button),"treeview17");
+  afficher_coach(aff1);
+  GtkWidget *aff2 = lookup_widget(GTK_WIDGET(button),"treeview18");
+  afficher_medecin(aff2);
+  GtkWidget *aff3 = lookup_widget(GTK_WIDGET(button),"treeview19");
+  afficher_kine(aff3);
+}
+
+void
+on_button54_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  int id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+ GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview15");
+  afficher_kine_1(aff,id);
+}
+
+void
+on_button24_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+reserv r;
+GtkWidget *input1 = lookup_widget(button,"ID");
+r.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+GtkWidget *input2 = lookup_widget(button,"entry139");
+strcpy(r.NOM_prof,gtk_entry_get_text(GTK_ENTRY(input2)));
+GtkWidget *input3 = lookup_widget(button,"entry140");
+strcpy(r.DATE,gtk_entry_get_text(GTK_ENTRY(input3)));
+ajouter_reserve(r);
+
+}
+
+
+void
+on_button25_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  reserv r;
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  r.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry141");
+  strcpy(r.NOM_prof,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry142");
+  strcpy(r.DATE,gtk_entry_get_text(GTK_ENTRY(input3)));
+  ajouter_reserve(r);
+}
+
+
+void
+on_button26_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  reserv r;
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  r.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry143");
+  strcpy(r.NOM_prof,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry144");
+  strcpy(r.DATE,gtk_entry_get_text(GTK_ENTRY(input3)));
+  ajouter_reserve(r);
 }

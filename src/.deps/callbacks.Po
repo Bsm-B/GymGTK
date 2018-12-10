@@ -565,7 +565,7 @@ callbacks.o: callbacks.c /usr/include/stdc-predef.h ../config.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h interface.h support.h \
  /usr/include/libintl.h /usr/include/locale.h \
  /usr/include/x86_64-linux-gnu/bits/locale.h users.h event.h profile.h \
- pay.h fichemed.h emploimed.h kine.h
+ pay.h fichemed.h emploimed.h kine.h coach.h
 
 /usr/include/stdc-predef.h:
 
@@ -1858,3 +1858,5 @@ fichemed.h:
 emploimed.h:
 
 kine.h:
+
+coach.h:

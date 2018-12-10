@@ -14,6 +14,7 @@
 #include "fichemed.h"
 #include "emploimed.h"
 #include "kine.h"
+#include "coach.h"
 
 void
 on_button1_clicked                     (GtkWidget       *button,
@@ -58,6 +59,12 @@ on_button1_clicked                     (GtkWidget       *button,
       Coach = create_Coach();
       gtk_widget_destroy(Login);
       gtk_widget_show(Coach);
+      GtkWidget *output3 = lookup_widget(GTK_WIDGET(Coach),"ID");
+      gtk_label_set_text(GTK_LABEL(output3),user_txt);
+      accedernom(atoi(user_txt),nom);
+      GtkWidget *output4 = lookup_widget(GTK_WIDGET(Coach),"Nom");
+      gtk_label_set_text(GTK_LABEL(output4),nom);
+
       break;
 
       case 4:
@@ -646,4 +653,93 @@ if (verif_kine(id) == 1 ){
 }else{
     gtk_label_set_text(GTK_LABEL(output1),"Error");
 }
+}
+
+void
+on_button42_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  coach c;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  c.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *input9 = lookup_widget(button,"Nom");
+  strcpy(c.NOM,gtk_label_get_text(GTK_LABEL(input9)));
+  GtkWidget *input2 = lookup_widget(button,"entry125");
+  strcpy(c.DATE[0],gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry126");
+  strcpy(c.DATE[1],gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry129");
+  strcpy(c.DATE[2],gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry131");
+  strcpy(c.DATE[3],gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *input6 = lookup_widget(button,"entry127");
+  strcpy(c.DATE[4],gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry128");
+  strcpy(c.DATE[5],gtk_entry_get_text(GTK_ENTRY(input7)));
+  GtkWidget *input8 = lookup_widget(button,"entry130");
+  strcpy(c.DATE[6],gtk_entry_get_text(GTK_ENTRY(input8)));
+
+  if (verif_coach(c.ID) == 0){
+      ajouter_coach(c);
+      gtk_label_set_text(GTK_LABEL(output1),"Emploit Ajouté");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }
+}
+
+
+void
+on_button43_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  coach c;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  c.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+
+
+  GtkWidget *input9 = lookup_widget(button,"Nom");
+  strcpy(c.NOM,gtk_label_get_text(GTK_LABEL(input9)));
+  GtkWidget *input2 = lookup_widget(button,"entry132");
+  strcpy(c.DATE[0],gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry133");
+  strcpy(c.DATE[1],gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry136");
+  strcpy(c.DATE[2],gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry138");
+  strcpy(c.DATE[3],gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *input6 = lookup_widget(button,"entry134");
+  strcpy(c.DATE[4],gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry135");
+  strcpy(c.DATE[5],gtk_entry_get_text(GTK_ENTRY(input7)));
+  GtkWidget *input8 = lookup_widget(button,"entry137");
+  strcpy(c.DATE[6],gtk_entry_get_text(GTK_ENTRY(input8)));
+
+
+  if (verif_coach(c.ID) == 1){
+      modifier_coach(c);
+      gtk_label_set_text(GTK_LABEL(output1),"Emploit modifié");
+  }else{
+      gtk_label_set_text(GTK_LABEL(output1),"Error");
+  }
+}
+
+
+void
+on_button44_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  int id;
+  GtkWidget *output1 = lookup_widget(button,"msg");
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  id = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+
+if (verif_coach(id) == 1 ){
+    supprimer_coach(id);
+    gtk_label_set_text(GTK_LABEL(output1),"Emploit Suprrimé");
+}else{
+    gtk_label_set_text(GTK_LABEL(output1),"Error");
+}
+
 }

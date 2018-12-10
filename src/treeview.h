@@ -14,6 +14,9 @@
 #include <string.h>
 
 void afficher_event(GtkWidget *treeview);
+void afficher_user(GtkWidget *treeview);
+void afficher_pay(GtkWidget *treeview);
+
 
 
 

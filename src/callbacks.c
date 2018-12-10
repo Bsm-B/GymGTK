@@ -811,3 +811,19 @@ on_button45_clicked                    (GtkWidget       *button,
   GtkWidget *aff1 = lookup_widget(GTK_WIDGET(button),"treeview4");
   afficher_event(aff1);
 }
+
+void
+on_button46_clicked                    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview5");
+  afficher_user(aff);
+}
+
+void
+on_button47_clicked                    (GtkButton       *button,
+                                        gpointer         user_data)
+{
+  GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview16");
+  afficher_pay(aff);
+}

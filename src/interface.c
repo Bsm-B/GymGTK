@@ -3060,8 +3060,6 @@ create_User (void)
   GtkWidget *fixed33;
   GtkWidget *label148;
   GtkWidget *label150;
-  GtkWidget *treeview12;
-  GtkWidget *label154;
   GtkWidget *entry47;
   GtkWidget *entry48;
   GtkWidget *entry49;
@@ -3071,12 +3069,26 @@ create_User (void)
   GtkWidget *entry51;
   GtkWidget *label153;
   GtkWidget *entry52;
+  GtkWidget *label149;
+  GtkWidget *label154;
+  GtkWidget *label309;
+  GtkWidget *label310;
+  GtkWidget *label314;
+  GtkWidget *label313;
+  GtkWidget *ID;
   GtkWidget *button27;
   GtkWidget *alignment27;
   GtkWidget *hbox27;
   GtkWidget *image28;
   GtkWidget *label155;
-  GtkWidget *label149;
+  GtkWidget *label311;
+  GtkWidget *label319;
+  GtkWidget *label317;
+  GtkWidget *label320;
+  GtkWidget *label318;
+  GtkWidget *label315;
+  GtkWidget *label316;
+  GtkWidget *label312;
   GtkWidget *label109;
   GtkWidget *fixed32;
   GtkWidget *comboboxentry23;
@@ -3147,16 +3159,6 @@ create_User (void)
   gtk_fixed_put (GTK_FIXED (fixed33), label150, 288, 72);
   gtk_widget_set_size_request (label150, 57, 17);
 
-  treeview12 = gtk_tree_view_new ();
-  gtk_widget_show (treeview12);
-  gtk_fixed_put (GTK_FIXED (fixed33), treeview12, 40, 264);
-  gtk_widget_set_size_request (treeview12, 584, 200);
-
-  label154 = gtk_label_new (_("Mon Profile :"));
-  gtk_widget_show (label154);
-  gtk_fixed_put (GTK_FIXED (fixed33), label154, 40, 232);
-  gtk_widget_set_size_request (label154, 128, 17);
-
   entry47 = gtk_entry_new ();
   gtk_widget_show (entry47);
   gtk_fixed_put (GTK_FIXED (fixed33), entry47, 96, 72);
@@ -3208,9 +3210,44 @@ create_User (void)
   gtk_widget_set_size_request (entry52, 56, 27);
   gtk_entry_set_invisible_char (GTK_ENTRY (entry52), 8226);
 
+  label149 = gtk_label_new (_("Prenom :"));
+  gtk_widget_show (label149);
+  gtk_fixed_put (GTK_FIXED (fixed33), label149, 32, 144);
+  gtk_widget_set_size_request (label149, 57, 17);
+
+  label154 = gtk_label_new (_("Mon Profile :"));
+  gtk_widget_show (label154);
+  gtk_fixed_put (GTK_FIXED (fixed33), label154, 40, 232);
+  gtk_widget_set_size_request (label154, 128, 17);
+
+  label309 = gtk_label_new (_("nom :"));
+  gtk_widget_show (label309);
+  gtk_fixed_put (GTK_FIXED (fixed33), label309, 64, 288);
+  gtk_widget_set_size_request (label309, 57, 17);
+
+  label310 = gtk_label_new (_("prenom"));
+  gtk_widget_show (label310);
+  gtk_fixed_put (GTK_FIXED (fixed33), label310, 64, 336);
+  gtk_widget_set_size_request (label310, 57, 17);
+
+  label314 = gtk_label_new (_("Tel :"));
+  gtk_widget_show (label314);
+  gtk_fixed_put (GTK_FIXED (fixed33), label314, 216, 336);
+  gtk_widget_set_size_request (label314, 57, 17);
+
+  label313 = gtk_label_new (_("Email :"));
+  gtk_widget_show (label313);
+  gtk_fixed_put (GTK_FIXED (fixed33), label313, 216, 288);
+  gtk_widget_set_size_request (label313, 57, 17);
+
+  ID = gtk_label_new (_("ID"));
+  gtk_widget_show (ID);
+  gtk_fixed_put (GTK_FIXED (fixed33), ID, 64, 256);
+  gtk_widget_set_size_request (ID, 57, 17);
+
   button27 = gtk_button_new ();
   gtk_widget_show (button27);
-  gtk_fixed_put (GTK_FIXED (fixed33), button27, 496, 200);
+  gtk_fixed_put (GTK_FIXED (fixed33), button27, 520, 200);
   gtk_widget_set_size_request (button27, 168, 37);
 
   alignment27 = gtk_alignment_new (0.5, 0.5, 0, 0);
@@ -3229,10 +3266,45 @@ create_User (void)
   gtk_widget_show (label155);
   gtk_box_pack_start (GTK_BOX (hbox27), label155, FALSE, FALSE, 0);
 
-  label149 = gtk_label_new (_("Prenom :"));
-  gtk_widget_show (label149);
-  gtk_fixed_put (GTK_FIXED (fixed33), label149, 32, 144);
-  gtk_widget_set_size_request (label149, 57, 17);
+  label311 = gtk_label_new (_("n"));
+  gtk_widget_show (label311);
+  gtk_fixed_put (GTK_FIXED (fixed33), label311, 144, 288);
+  gtk_widget_set_size_request (label311, 57, 17);
+
+  label319 = gtk_label_new (_("p"));
+  gtk_widget_show (label319);
+  gtk_fixed_put (GTK_FIXED (fixed33), label319, 512, 288);
+  gtk_widget_set_size_request (label319, 136, 17);
+
+  label317 = gtk_label_new (_("poids :"));
+  gtk_widget_show (label317);
+  gtk_fixed_put (GTK_FIXED (fixed33), label317, 424, 288);
+  gtk_widget_set_size_request (label317, 57, 17);
+
+  label320 = gtk_label_new (_("l"));
+  gtk_widget_show (label320);
+  gtk_fixed_put (GTK_FIXED (fixed33), label320, 520, 336);
+  gtk_widget_set_size_request (label320, 136, 17);
+
+  label318 = gtk_label_new (_("longuerur :"));
+  gtk_widget_show (label318);
+  gtk_fixed_put (GTK_FIXED (fixed33), label318, 408, 336);
+  gtk_widget_set_size_request (label318, 96, 16);
+
+  label315 = gtk_label_new (_("em"));
+  gtk_widget_show (label315);
+  gtk_fixed_put (GTK_FIXED (fixed33), label315, 288, 289);
+  gtk_widget_set_size_request (label315, 104, 16);
+
+  label316 = gtk_label_new (_("t"));
+  gtk_widget_show (label316);
+  gtk_fixed_put (GTK_FIXED (fixed33), label316, 288, 337);
+  gtk_widget_set_size_request (label316, 112, 16);
+
+  label312 = gtk_label_new (_("pr"));
+  gtk_widget_show (label312);
+  gtk_fixed_put (GTK_FIXED (fixed33), label312, 144, 336);
+  gtk_widget_set_size_request (label312, 57, 17);
 
   label109 = gtk_label_new (_("Profile"));
   gtk_widget_show (label109);
@@ -3427,6 +3499,10 @@ create_User (void)
   gtk_widget_show (label111);
   gtk_notebook_set_tab_label (GTK_NOTEBOOK (notebook8), gtk_notebook_get_nth_page (GTK_NOTEBOOK (notebook8), 2), label111);
 
+  g_signal_connect ((gpointer) button27, "clicked",
+                    G_CALLBACK (on_button27_clicked),
+                    NULL);
+
   /* Store pointers to all widgets, for use by lookup_widget(). */
   GLADE_HOOKUP_OBJECT_NO_REF (User, User, "User");
   GLADE_HOOKUP_OBJECT (User, fixed29, "fixed29");
@@ -3434,8 +3510,6 @@ create_User (void)
   GLADE_HOOKUP_OBJECT (User, fixed33, "fixed33");
   GLADE_HOOKUP_OBJECT (User, label148, "label148");
   GLADE_HOOKUP_OBJECT (User, label150, "label150");
-  GLADE_HOOKUP_OBJECT (User, treeview12, "treeview12");
-  GLADE_HOOKUP_OBJECT (User, label154, "label154");
   GLADE_HOOKUP_OBJECT (User, entry47, "entry47");
   GLADE_HOOKUP_OBJECT (User, entry48, "entry48");
   GLADE_HOOKUP_OBJECT (User, entry49, "entry49");
@@ -3445,12 +3519,26 @@ create_User (void)
   GLADE_HOOKUP_OBJECT (User, entry51, "entry51");
   GLADE_HOOKUP_OBJECT (User, label153, "label153");
   GLADE_HOOKUP_OBJECT (User, entry52, "entry52");
+  GLADE_HOOKUP_OBJECT (User, label149, "label149");
+  GLADE_HOOKUP_OBJECT (User, label154, "label154");
+  GLADE_HOOKUP_OBJECT (User, label309, "label309");
+  GLADE_HOOKUP_OBJECT (User, label310, "label310");
+  GLADE_HOOKUP_OBJECT (User, label314, "label314");
+  GLADE_HOOKUP_OBJECT (User, label313, "label313");
+  GLADE_HOOKUP_OBJECT (User, ID, "ID");
   GLADE_HOOKUP_OBJECT (User, button27, "button27");
   GLADE_HOOKUP_OBJECT (User, alignment27, "alignment27");
   GLADE_HOOKUP_OBJECT (User, hbox27, "hbox27");
   GLADE_HOOKUP_OBJECT (User, image28, "image28");
   GLADE_HOOKUP_OBJECT (User, label155, "label155");
-  GLADE_HOOKUP_OBJECT (User, label149, "label149");
+  GLADE_HOOKUP_OBJECT (User, label311, "label311");
+  GLADE_HOOKUP_OBJECT (User, label319, "label319");
+  GLADE_HOOKUP_OBJECT (User, label317, "label317");
+  GLADE_HOOKUP_OBJECT (User, label320, "label320");
+  GLADE_HOOKUP_OBJECT (User, label318, "label318");
+  GLADE_HOOKUP_OBJECT (User, label315, "label315");
+  GLADE_HOOKUP_OBJECT (User, label316, "label316");
+  GLADE_HOOKUP_OBJECT (User, label312, "label312");
   GLADE_HOOKUP_OBJECT (User, label109, "label109");
   GLADE_HOOKUP_OBJECT (User, fixed32, "fixed32");
   GLADE_HOOKUP_OBJECT (User, comboboxentry23, "comboboxentry23");

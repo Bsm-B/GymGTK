@@ -90,6 +90,26 @@ on_button1_clicked                     (GtkWidget       *button,
       User = create_User();
       gtk_widget_destroy(Login);
       gtk_widget_show(User);
+      GtkWidget *output5 = lookup_widget(GTK_WIDGET(User),"ID");
+      gtk_label_set_text(GTK_LABEL(output5),user_txt);
+      prfl p;
+      char x1[20],x2[20];
+      p = search(atoi(user_txt));
+      sprintf(x1,"%f",p.POIDS);
+      sprintf(x2,"%f",p.LONG);
+      GtkWidget *output6 = lookup_widget(GTK_WIDGET(User),"label311");
+      gtk_label_set_text(GTK_LABEL(output6),p.NOM);
+      GtkWidget *output7 = lookup_widget(GTK_WIDGET(User),"label312");
+      gtk_label_set_text(GTK_LABEL(output7),p.PRENOM);
+      GtkWidget *output8 = lookup_widget(GTK_WIDGET(User),"label315");
+      gtk_label_set_text(GTK_LABEL(output8),p.EMAIL);
+      GtkWidget *output9 = lookup_widget(GTK_WIDGET(User),"label316");
+      gtk_label_set_text(GTK_LABEL(output9),p.TEL);
+      GtkWidget *output11 = lookup_widget(GTK_WIDGET(User),"label319");
+      gtk_label_set_text(GTK_LABEL(output11),x1);
+      GtkWidget *output12 = lookup_widget(GTK_WIDGET(User),"label320");
+      gtk_label_set_text(GTK_LABEL(output12),x2);
+
       break;
 
       default:
@@ -742,4 +762,43 @@ if (verif_coach(id) == 1 ){
     gtk_label_set_text(GTK_LABEL(output1),"Error");
 }
 
+}
+
+void
+on_button27_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  prfl p;
+  GtkWidget *input1 = lookup_widget(button,"ID");
+  p.ID = atoi(gtk_label_get_text(GTK_LABEL(input1)));
+  GtkWidget *input2 = lookup_widget(button,"entry47");
+  strcpy(p.NOM,gtk_entry_get_text(GTK_ENTRY(input2)));
+  GtkWidget *input3 = lookup_widget(button,"entry48");
+  strcpy(p.PRENOM,gtk_entry_get_text(GTK_ENTRY(input3)));
+  GtkWidget *input4 = lookup_widget(button,"entry49");
+  strcpy(p.EMAIL,gtk_entry_get_text(GTK_ENTRY(input4)));
+  GtkWidget *input5 = lookup_widget(button,"entry51");
+  strcpy(p.TEL,gtk_entry_get_text(GTK_ENTRY(input5)));
+  GtkWidget *input6 = lookup_widget(button,"entry50");
+  p.POIDS = atof(gtk_entry_get_text(GTK_ENTRY(input6)));
+  GtkWidget *input7 = lookup_widget(button,"entry52");
+  p.LONG = atof(gtk_entry_get_text(GTK_ENTRY(input7)));
+  modifier_profile(p);
+  prfl p2;
+  char x1[20],x2[20];
+  p2 = search(p.ID);
+  sprintf(x1,"%f",p2.POIDS);
+  sprintf(x2,"%f",p2.LONG);
+  GtkWidget *output6 = lookup_widget(GTK_WIDGET(button),"label311");
+  gtk_label_set_text(GTK_LABEL(output6),p2.NOM);
+  GtkWidget *output7 = lookup_widget(GTK_WIDGET(button),"label312");
+  gtk_label_set_text(GTK_LABEL(output7),p2.PRENOM);
+  GtkWidget *output8 = lookup_widget(GTK_WIDGET(button),"label315");
+  gtk_label_set_text(GTK_LABEL(output8),p2.EMAIL);
+  GtkWidget *output9 = lookup_widget(GTK_WIDGET(button),"label316");
+  gtk_label_set_text(GTK_LABEL(output9),p2.TEL);
+  GtkWidget *output11 = lookup_widget(GTK_WIDGET(button),"label319");
+  gtk_label_set_text(GTK_LABEL(output11),x1);
+  GtkWidget *output12 = lookup_widget(GTK_WIDGET(button),"label320");
+  gtk_label_set_text(GTK_LABEL(output12),x2);
 }

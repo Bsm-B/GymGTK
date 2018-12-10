@@ -1,4 +1,1 @@
-786 ahlem rami empty empty 0,000000 0,000000
-475 ahlem rami empty empty 0,000000 0,000000
-1024 ahlem rami empty empty 0,000000 0,000000
-7578 ahlem rami empty empty 0,000000 0,000000
+300 soha azdin ra@d 215587 12,000000 3,000000

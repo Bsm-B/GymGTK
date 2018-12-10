@@ -9,7 +9,7 @@ struct Profile
     char NOM[20];
     char PRENOM[20];
     char EMAIL[30];
-    char TEL[8];
+    char TEL[12];
     float POIDS;
     float LONG;
 };
@@ -18,6 +18,6 @@ typedef struct Profile prfl;
 void ajouter_profile(prfl);
 void modifier_profile(prfl);
 void supprimer_profile(int);
-
+prfl search(int);
 
 #endif //PROFILE_H_INCLUDED

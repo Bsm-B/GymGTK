@@ -100,5 +100,5 @@ void supprimer_user(int id)
 	fclose(ftemp);
 	remove("users.txt");
 	rename("users.tmp","users.txt");
-  if(u.ROLE == 6) supprimer_profile(u.ID);
+  if(u.ROLE == 6) supprimer_profile(id);
 }

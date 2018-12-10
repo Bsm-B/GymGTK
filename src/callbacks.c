@@ -216,6 +216,33 @@ on_button4_clicked                     (GtkWidget       *button,
       gtk_label_set_text(GTK_LABEL(output1),"Error: ID non exist !");
     }
 }
+
+
+void
+on_Search_clicked                      (GtkWidget       *button,
+                                        gpointer         user_data)
+{
+  prfl p;
+  char x1[20],x2[20];
+  GtkWidget *searchid = lookup_widget(GTK_WIDGET(button),"entry145");
+  int id =  atoi(gtk_entry_get_text(GTK_ENTRY(searchid)));
+  p = search(id);
+  sprintf(x1,"%f",p.POIDS);
+  sprintf(x2,"%f",p.LONG);
+  GtkWidget *output6 = lookup_widget(GTK_WIDGET(button),"nom");
+  gtk_label_set_text(GTK_LABEL(output6),p.NOM);
+  GtkWidget *output7 = lookup_widget(GTK_WIDGET(button),"prenom");
+  gtk_label_set_text(GTK_LABEL(output7),p.PRENOM);
+  GtkWidget *output8 = lookup_widget(GTK_WIDGET(button),"Email");
+  gtk_label_set_text(GTK_LABEL(output8),p.EMAIL);
+  GtkWidget *output9 = lookup_widget(GTK_WIDGET(button),"Tel");
+  gtk_label_set_text(GTK_LABEL(output9),p.TEL);
+  GtkWidget *output11 = lookup_widget(GTK_WIDGET(button),"Poids");
+  gtk_label_set_text(GTK_LABEL(output11),x1);
+  GtkWidget *output12 = lookup_widget(GTK_WIDGET(button),"Long");
+  gtk_label_set_text(GTK_LABEL(output12),x2);
+}
+
 /////////////////////////CRUD EVENT ////////////////////////////////////
 void
 on_button5_clicked                     (GtkWidget       *button,
@@ -813,7 +840,7 @@ on_button45_clicked                    (GtkWidget       *button,
 }
 
 void
-on_button46_clicked                    (GtkButton       *button,
+on_button46_clicked                    (GtkWidget       *button,
                                         gpointer         user_data)
 {
   GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview5");
@@ -821,7 +848,7 @@ on_button46_clicked                    (GtkButton       *button,
 }
 
 void
-on_button47_clicked                    (GtkButton       *button,
+on_button47_clicked                    (GtkWidget       *button,
                                         gpointer         user_data)
 {
   GtkWidget *aff = lookup_widget(GTK_WIDGET(button),"treeview16");

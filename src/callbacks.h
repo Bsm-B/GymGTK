@@ -110,9 +110,13 @@ on_button45_clicked                    (GtkWidget       *button,
                                         gpointer         user_data);
 
 void
-on_button46_clicked                    (GtkButton       *button,
+on_button46_clicked                    (GtkWidget       *button,
                                         gpointer         user_data);
 
 void
-on_button47_clicked                    (GtkButton       *button,
+on_button47_clicked                    (GtkWidget       *button,
+                                        gpointer         user_data);
+
+void
+on_Search_clicked                      (GtkWidget       *button,
                                         gpointer         user_data);

@@ -126,7 +126,7 @@ void afficher_user(GtkWidget *treeview)
   		while(fscanf(f,"%s %s %d %d %d",nom,prenom,&id,&pass_u,&role_u)!=EOF)
   		{
   			gtk_list_store_append (store, &iter);
-gtk_list_store_set (store, &iter,NOM_USER,nom,PRENOM_USER,prenom,ID_USER,id,pass_u,ROLE_USER,role_u,-1);
+gtk_list_store_set (store, &iter,NOM_USER,nom,PRENOM_USER,prenom,ID_USER,id,PASS_USER,pass_u,ROLE_USER,role_u,-1);
 
   		}
       fclose(f);
